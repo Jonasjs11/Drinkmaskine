@@ -1,10 +1,12 @@
+import java.util.Arrays;//For initialisering af drinksne ingredienser
+
 boolean screenMainMenu;
 boolean screenBottles;
 boolean screenDrinks;
 boolean screenPrepareServing;
 boolean screenServing;
 
-ArrayList<String> allBottles;
+ArrayList<Bottle> allBottles;
 ArrayList<Drink> allDrinks;
 
 String[] connectedBottles;
@@ -14,13 +16,21 @@ void setup(){
   
   switchToScreenMainMenu();
   
-  allBottles = new ArrayList<String>();
+  allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();
   
   connectedBottles = new String[9];
   for(int i = 0; i < connectedBottles.length; i++){
     connectedBottles[i] = "";
   }
+  
+  allBottles.add(new Bottle("Vodka", 37.5));
+  allBottles.add(new Bottle("Tequila", 20));
+  allBottles.add(new Bottle("Appelsinjuice", 0));
+  
+  allDrinks.add(new Drink("Tequila Sunrise", new ArrayList<Ingredient>(Arrays.asList(
+  new Ingredient("Tequila", 4), new Ingredient("Appelsinjuice", 10), new Ingredient("Grenadine syrup", 1)
+  ))));
 }
 
 void draw(){
@@ -39,6 +49,17 @@ void draw(){
   if(screenServing){
     drawServingScreen();
   }
+}
+
+boolean buttonClicked(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight){
+  if(mousePressed){
+    if(mouseX >= topLeftX && mouseX <= topLeftX + buttonWidth){
+      if(mouseY >= topLeftY && mouseY <= topLeftY + buttonHeight){
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 void switchToScreenMainMenu(){
