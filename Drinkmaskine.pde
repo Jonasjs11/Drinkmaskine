@@ -62,6 +62,36 @@ boolean buttonClicked(int topLeftX, int topLeftY, int buttonWidth, int buttonHei
   return false;
 }
 
+ArrayList<Drink> getPossibleDrinks(){
+  ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
+  
+  for(int d = 0; d < allDrinks.size(); d++){
+    boolean hasAllIngredients = true;
+    
+    for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
+      if(hasConnectedBottle(allDrinks.get(d).usedIngredients.get(i).bottleName) == false){
+        hasAllIngredients = false;
+      }
+    }
+    
+    if(hasAllIngredients){
+      possibleDrinks.add(allDrinks.get(d));
+    }
+  }
+  
+  return possibleDrinks;
+}
+
+boolean hasConnectedBottle(String bottle){
+  boolean hasConnectedBottle = false;
+  for(int i = 0; i < connectedBottles.length; i++){
+    if(connectedBottles[i] == bottle){
+      hasConnectedBottle = true;
+    }
+  }
+  return hasConnectedBottle;
+}
+
 void switchToScreenMainMenu(){
   screenMainMenu = true;
   screenBottles = false;
