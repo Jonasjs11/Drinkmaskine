@@ -28,10 +28,10 @@ void setup(){
   allBottles.add(new Bottle("Tequila", 20));
   allBottles.add(new Bottle("Appelsinjuice", 0));
   
-  allDrinks.add(new Drink("Tequila Sunrise", new ArrayList<Ingredient>(Arrays.asList(
+  allDrinks.add(new Drink("Tequila Sunrise", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
   new Ingredient("Tequila", 4), new Ingredient("Appelsinjuice", 10), new Ingredient("Grenadine syrup", 1)
   ))));
-  allDrinks.add(new Drink("Vodka shot", new ArrayList<Ingredient>(Arrays.asList(
+  allDrinks.add(new Drink("Vodka shot", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
   new Ingredient("Vodka", 1)
   ))));
   
