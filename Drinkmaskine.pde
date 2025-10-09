@@ -31,6 +31,11 @@ void setup(){
   allDrinks.add(new Drink("Tequila Sunrise", new ArrayList<Ingredient>(Arrays.asList(
   new Ingredient("Tequila", 4), new Ingredient("Appelsinjuice", 10), new Ingredient("Grenadine syrup", 1)
   ))));
+  allDrinks.add(new Drink("Vodka shot", new ArrayList<Ingredient>(Arrays.asList(
+  new Ingredient("Vodka", 1)
+  ))));
+  
+  connectedBottles[0] = "Vodka"; //KUN FOR TEST
 }
 
 void draw(){
