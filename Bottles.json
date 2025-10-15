@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Vodka",
+    "alcoholPercentage": 37.5
+  },
+  {
+    "name": "Tequila",
+    "alcoholPercentage": 20
+  },
+  {
+    "name": "Appelsinjuice",
+    "alcoholPercentage": 0
+  }
+]

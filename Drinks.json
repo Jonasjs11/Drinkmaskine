@@ -1,0 +1,66 @@
+[
+  {
+    "usedIngredients": [
+      {
+        "amount": 4,
+        "bottleName": "Tequila"
+      },
+      {
+        "amount": 10,
+        "bottleName": "Appelsinjuice"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Grenadine syrup"
+      }
+    ],
+    "name": "Tequila Sunrise",
+    "iconPath": "TequilaSunrise.png"
+  },
+  {
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Vodka"
+      }
+    ],
+    "name": "Vodka shot",
+    "iconPath": "TequilaSunrise.png"
+  },
+  {
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Rom"
+      },
+      {
+        "amount": 3,
+        "bottleName": "Cola"
+      }
+    ],
+    "name": "Rom og Cola",
+    "iconPath": "TequilaSunrise.png"
+  },
+  {
+    "usedIngredients": [
+      {
+        "amount": 5,
+        "bottleName": "Whiskey"
+      },
+      {
+        "amount": 3,
+        "bottleName": "Citronsaft"
+      },
+      {
+        "amount": 2,
+        "bottleName": "Sukkersirup"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Pasteuriseret æggehvide"
+      }
+    ],
+    "name": "Whiskey sour",
+    "iconPath": "TequilaSunrise.png"
+  }
+]

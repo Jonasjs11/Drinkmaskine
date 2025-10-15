@@ -29,22 +29,7 @@ void setup(){
     connectedBottles[i] = "";
   }
   
-  allBottles.add(new Bottle("Vodka", 37.5));
-  allBottles.add(new Bottle("Tequila", 20));
-  allBottles.add(new Bottle("Appelsinjuice", 0));
-  
-  allDrinks.add(new Drink("Tequila Sunrise", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
-  new Ingredient("Tequila", 4), new Ingredient("Appelsinjuice", 10), new Ingredient("Grenadine syrup", 1)
-  ))));
-  allDrinks.add(new Drink("Vodka shot", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
-  new Ingredient("Vodka", 1)
-  ))));
-  allDrinks.add(new Drink("Rom og Cola", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
-  new Ingredient("Vodka", 1)
-  ))));
-  allDrinks.add(new Drink("Whiskey sour", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
-  new Ingredient("Vodka", 1)
-  ))));
+  loadDrinksAndBottles();
   
   filterIcon = loadImage("Filter.png");
   searchIcon = loadImage("Search.png");
@@ -74,6 +59,67 @@ void draw(){
 
 void mouseReleased(){
   mouseReleased = true;
+}
+
+void saveDrinksAndBottles(){
+  JSONArray bottlesJSON = new JSONArray();
+
+  for(int i = 0; i < allBottles.size(); i++){
+    JSONObject bottle = new JSONObject();
+
+    bottle.setString("name", allBottles.get(i).name);
+    bottle.setFloat("alcoholPercentage", allBottles.get(i).alcoholPercentage);
+    
+    bottlesJSON.setJSONObject(i, bottle);
+  }
+
+  saveJSONArray(bottlesJSON, "Bottles.json");
+  
+  
+  JSONArray drinksJSON = new JSONArray();
+
+  for(int i = 0; i < allDrinks.size(); i++){
+    JSONObject drink = new JSONObject();
+
+    drink.setString("name", allDrinks.get(i).name);
+    drink.setString("iconPath", allDrinks.get(i).iconPath);
+    
+    JSONArray ingredients = new JSONArray();
+    for(int ingr = 0; ingr < allDrinks.get(i).usedIngredients.size(); ingr++){
+      JSONObject ingredient = new JSONObject();
+      ingredient.setString("bottleName", allDrinks.get(i).usedIngredients.get(ingr).bottleName);
+      ingredient.setInt("amount", allDrinks.get(i).usedIngredients.get(ingr).amount);
+      ingredients.setJSONObject(ingr, ingredient);
+    }
+    drink.setJSONArray("usedIngredients", ingredients);
+    
+    drinksJSON.setJSONObject(i, drink);
+  }
+
+  saveJSONArray(drinksJSON, "Drinks.json");
+}
+void loadDrinksAndBottles(){
+  JSONArray bottlesJSON = loadJSONArray("Bottles.json");
+  for(int i = 0; i < bottlesJSON.size(); i++){
+    JSONObject bottle = bottlesJSON.getJSONObject(i);
+    allBottles.add(new Bottle(bottle.getString("name"), bottle.getFloat("alcoholPercentage")));
+  }
+  
+  JSONArray drinksJSON = loadJSONArray("Drinks.json");
+  for(int i = 0; i < drinksJSON.size(); i++){
+    JSONObject drink = drinksJSON.getJSONObject(i);
+    
+    JSONArray usedIngredients = drink.getJSONArray("usedIngredients");
+    ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+    for(int ingr = 0; ingr < usedIngredients.size(); ingr++){
+      JSONObject ingredient = usedIngredients.getJSONObject(ingr);
+      ingredients.add(new Ingredient(ingredient.getString("bottleName"), ingredient.getInt("amount")));
+    }
+    
+    String name = drink.getString("name");
+    String iconPath = drink.getString("iconPath");
+    allDrinks.add(new Drink(name, loadImage(iconPath), iconPath, ingredients));
+  }
 }
 
 boolean buttonClicked(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight){

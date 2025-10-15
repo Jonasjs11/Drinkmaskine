@@ -1,11 +1,13 @@
 class Drink{
   String name;
-  ArrayList<Ingredient> usedIngredients;
   PImage icon;
+  String iconPath;
+  ArrayList<Ingredient> usedIngredients;
   
-  Drink(String name, PImage icon, ArrayList<Ingredient> usedIngredients){
+  Drink(String name, PImage icon, String iconPath, ArrayList<Ingredient> usedIngredients){
     this.name = name;
     this.icon = icon;
+    this.iconPath = iconPath;
     this.usedIngredients = usedIngredients;
   }
   
