@@ -2,6 +2,33 @@ void drawPrepareServingScreen(){
   background(255);
   
   drawColorschemeSelection();
+  drawServingSettings();
+  drawBeginServingButton();
+}
+
+void drawServingSettings(){
+  
+}
+
+void drawBeginServingButton(){
+  noStroke();
+  
+  fill(#D9D9D9);
+  if(areaHover(983, 1050, 500, 100)){
+    fill(#F0F0F0);
+    if(mouseReleased){
+      switchToScreenServing();
+    }
+  }
+  if(mousePressed){
+    fill(#24F064);
+  }
+  rect(983, 1050, 500, 100);
+  
+  fill(#000000);
+  textAlign(CENTER, CENTER);
+  textSize(56);
+  text("Begynd servering", 1233, 1100);
 }
 
 void drawColorschemeSelection(){

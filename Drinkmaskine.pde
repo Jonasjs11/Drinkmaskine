@@ -11,6 +11,8 @@ ArrayList<Drink> allDrinks;
 
 String[] connectedBottles;
 
+boolean mouseReleased;
+
 void setup(){
   size(1920, 1200);
   
@@ -54,14 +56,25 @@ void draw(){
   if(screenServing){
     drawServingScreen();
   }
+  
+  mouseReleased = false;
+}
+
+void mouseReleased(){
+  mouseReleased = true;
 }
 
 boolean buttonClicked(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight){
-  if(mousePressed){
-    if(mouseX >= topLeftX && mouseX <= topLeftX + buttonWidth){
-      if(mouseY >= topLeftY && mouseY <= topLeftY + buttonHeight){
-        return true;
-      }
+  if(mouseReleased){
+    return areaHover(topLeftX, topLeftY, buttonWidth, buttonHeight);
+  }
+  return false;
+}
+
+boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight){
+  if(mouseX >= topLeftX && mouseX <= topLeftX + buttonWidth){
+    if(mouseY >= topLeftY && mouseY <= topLeftY + buttonHeight){
+      return true;
     }
   }
   return false;
