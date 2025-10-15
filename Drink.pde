@@ -13,6 +13,15 @@ class Drink{
     imageMode(CENTER);
     image(icon, centerX,  centerY, imgWidth, imgHeight);
   }
+  
+  String importantIngredients(){
+    String important = "";
+    for(int i = 0; i < usedIngredients.size(); i++){
+      important += usedIngredients.get(i).bottleName + ", ";
+    }
+    important = important.substring(0, important.length()-2);
+    return important;
+  }
 }
 
 class Ingredient{

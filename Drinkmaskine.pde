@@ -13,6 +13,9 @@ String[] connectedBottles;
 
 boolean mouseReleased;
 
+PImage filterIcon;
+PImage searchIcon;
+
 void setup(){
   size(1920, 1200);
   
@@ -36,6 +39,15 @@ void setup(){
   allDrinks.add(new Drink("Vodka shot", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
   new Ingredient("Vodka", 1)
   ))));
+  allDrinks.add(new Drink("Rom og Cola", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
+  new Ingredient("Vodka", 1)
+  ))));
+  allDrinks.add(new Drink("Whiskey sour", loadImage("TequilaSunrise.png"), new ArrayList<Ingredient>(Arrays.asList(
+  new Ingredient("Vodka", 1)
+  ))));
+  
+  filterIcon = loadImage("Filter.png");
+  searchIcon = loadImage("Search.png");
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
 }
@@ -80,6 +92,24 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
   return false;
 }
 
+String currentSearchBarText;
+void resetSearchBar() { currentSearchBarText = ""; }
+void searchBar(int topLeftX, int topLeftY, int barWidth, int barHeight){
+  fill(#FFFFFF);
+  circle(topLeftX+(barHeight/2), topLeftY+(barHeight/2), barHeight);
+  rect(topLeftX+(barHeight/2), topLeftY, barWidth-barHeight, barHeight);
+  circle(topLeftX+(barHeight/2)+barWidth-barHeight, topLeftY+(barHeight/2), barHeight);
+  fill(#000000);
+  textAlign(LEFT, CENTER);
+  textSize(56);
+  text(currentSearchBarText, topLeftX+(barHeight/2), topLeftY+(barHeight/2));
+  if(areaHover(topLeftX, topLeftY, barWidth, barHeight)){
+    if(keyPressed){
+      currentSearchBarText += key;
+    }
+  }
+}
+
 ArrayList<Drink> getPossibleDrinks(){
   ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
   
@@ -116,6 +146,7 @@ void switchToScreenMainMenu(){
   screenDrinks = false;
   screenPrepareServing = false;
   screenServing = false;
+  resetSearchBar();
 }
 void switchToScreenBottles(){
   screenMainMenu = false;
@@ -123,6 +154,7 @@ void switchToScreenBottles(){
   screenDrinks = false;
   screenPrepareServing = false;
   screenServing = false;
+  resetSearchBar();
 }
 void switchToScreenDrinks(){
   screenMainMenu = false;
@@ -130,6 +162,7 @@ void switchToScreenDrinks(){
   screenDrinks = true;
   screenPrepareServing = false;
   screenServing = false;
+  resetSearchBar();
 }
 void switchToScreenPrepareServing(){
   screenMainMenu = false;
@@ -137,6 +170,7 @@ void switchToScreenPrepareServing(){
   screenDrinks = false;
   screenPrepareServing = true;
   screenServing = false;
+  resetSearchBar();
 }
 void switchToScreenServing(){
   screenMainMenu = false;
@@ -144,4 +178,5 @@ void switchToScreenServing(){
   screenDrinks = false;
   screenPrepareServing = false;
   screenServing = true;
+  resetSearchBar();
 }

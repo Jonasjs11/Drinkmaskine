@@ -16,12 +16,12 @@ void drawBeginServingButton(){
   fill(#D9D9D9);
   if(areaHover(983, 1050, 500, 100)){
     fill(#F0F0F0);
+    if(mousePressed){
+      fill(#24F064);
+    }
     if(mouseReleased){
       switchToScreenServing();
     }
-  }
-  if(mousePressed){
-    fill(#24F064);
   }
   rect(983, 1050, 500, 100);
   

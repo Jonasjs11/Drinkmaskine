@@ -1,22 +1,109 @@
-int colorBackground, colorDark, colorText;
+int colorBackground = #FFFFFF;
+int colorDark = #D9D9D9;
+int colorText = #000000;
 
 Drink selectedDrink;
 
 void drawServingScreen(){
-  background(255);
+  background(colorBackground);
   
   if(selectedDrink == null){
     selectedDrink = allDrinks.get(0);
   }
   
   drawSelectedDrinkPart();
+  
+  fill(colorDark);
+  rect(1090, 0, 10, 1200);
+  
   drawDrinkSelectionPart();
 }
 
 void drawSelectedDrinkPart(){
+  noStroke();
   
+  fill(colorDark);
+  rect(50, 50, 450, 450);
+  selectedDrink.showIcon(275, 275, 450, 450);
+  
+  fill(colorText);
+  textAlign(LEFT, BOTTOM);
+  textSize(80);
+  text(selectedDrink.name, 550, 250);
+  
+  fill(colorDark);
+  rect(550, 248, 490, 4);//Linje til at seperere navn og ingredienser
+  
+  fill(colorText);
+  textAlign(LEFT, TOP);
+  textSize(56);
+  text("Ingredienser:", 550, 250);
+  textSize(36);
+  text(" * 4x Tequila\n * 10x Appelsinjuice\n * 1x Grenadine syrup", 550, 347);
+  
+  fill(colorText);
+  textAlign(LEFT, TOP);
+  textSize(56);
+  text("Information", 50, 550);
+  textSize(36);
+  text("Tequila sunrise blev\nopfundet i Sausalito,\nCalifornien i 1970\'erne.\nDen har sit navn efter\ndens udseende af en\nomvendt solopgang.\n \n10% alkohol", 50, 625);
+  
+  
+  
+  fill(colorDark);
+  if(areaHover(550, 1025, 490, 125)){
+    fill(colorDark+#101010);
+    if(mousePressed){
+      fill(colorDark-#101010);
+    }
+    if(mouseReleased){
+      println("HÆLD DRINK OP HER");
+    }
+  }
+  rect(550, 1025, 490, 125);
+  
+  fill(colorText);
+  textAlign(CENTER, CENTER);
+  textSize(64);
+  text("Begynd servering", 795, 1087.5);
 }
 
 void drawDrinkSelectionPart(){
+  fill(colorDark);
+  rect(1150, 0, 720, 100);
   
+  searchBar(1160, 10, 409, 80);
+  
+  imageMode(CENTER);
+  image(searchIcon, 1609, 50, 80, 80);
+  image(filterIcon, 1709, 50, 80, 80);
+  
+  ArrayList<Drink> possibleDrinks = /*getPossibleDrinks()*/allDrinks;
+  
+  for(int i = 0; i < possibleDrinks.size(); i++){
+    drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinks.get(i));
+  }
+}
+
+void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight, Drink drink){
+  noStroke();
+  
+  fill(colorDark);
+  rect(topLeftX, topLeftY, buttonWidth, buttonHeight);
+  
+  fill(colorText);
+  textAlign(CENTER, TOP);
+  textSize(36);
+  text(drink.name, topLeftX+(buttonWidth/2), topLeftY);
+  
+  drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
+  
+  fill(colorText);
+  textAlign(CENTER, BOTTOM);
+  textSize(20);
+  text(drink.importantIngredients(), topLeftX+(buttonWidth/2), topLeftY+buttonHeight);
+  
+  if(buttonClicked(topLeftX, topLeftY, buttonWidth, buttonHeight)){
+    selectedDrink = drink;
+  }
 }
