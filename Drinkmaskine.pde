@@ -15,6 +15,7 @@ boolean mouseReleased;
 
 PImage filterIcon;
 PImage searchIcon;
+PImage addIcon;
 
 void setup(){
   size(1920, 1200);
@@ -33,6 +34,7 @@ void setup(){
   
   filterIcon = loadImage("Filter.png");
   searchIcon = loadImage("Search.png");
+  addIcon = loadImage("Add.png");
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
 }
@@ -193,6 +195,7 @@ void switchToScreenMainMenu(){
   screenPrepareServing = false;
   screenServing = false;
   resetSearchBar();
+  selectedBottleToConnect = null;
 }
 void switchToScreenBottles(){
   screenMainMenu = false;
@@ -201,6 +204,7 @@ void switchToScreenBottles(){
   screenPrepareServing = false;
   screenServing = false;
   resetSearchBar();
+  selectedBottleToConnect = null;
 }
 void switchToScreenDrinks(){
   screenMainMenu = false;
@@ -209,6 +213,7 @@ void switchToScreenDrinks(){
   screenPrepareServing = false;
   screenServing = false;
   resetSearchBar();
+  selectedBottleToConnect = null;
 }
 void switchToScreenPrepareServing(){
   screenMainMenu = false;
@@ -217,6 +222,7 @@ void switchToScreenPrepareServing(){
   screenPrepareServing = true;
   screenServing = false;
   resetSearchBar();
+  selectedBottleToConnect = null;
 }
 void switchToScreenServing(){
   screenMainMenu = false;
@@ -225,4 +231,5 @@ void switchToScreenServing(){
   screenPrepareServing = false;
   screenServing = true;
   resetSearchBar();
+  selectedBottleToConnect = null;
 }

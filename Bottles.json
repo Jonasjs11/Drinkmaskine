@@ -10,5 +10,13 @@
   {
     "name": "Appelsinjuice",
     "alcoholPercentage": 0
+  },
+  {
+    "name": "Coca Cola",
+    "alcoholPercentage": 0
+  },
+  {
+    "name": "Fuze Tea Peach",
+    "alcoholPercentage": 0
   }
 ]
