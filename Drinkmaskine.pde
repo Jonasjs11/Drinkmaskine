@@ -16,7 +16,11 @@ boolean mouseReleased;
 PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
+
 PImage greyBottlesIcon;
+
+PImage DrinkMaskine;
+
 
 int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
@@ -40,7 +44,11 @@ void setup(){
   filterIcon = loadImage("Filter.png");
   searchIcon = loadImage("Search.png");
   addIcon = loadImage("Add.png");
+
   greyBottlesIcon = loadImage("GraaFlasker.png");
+
+  DrinkMaskine = loadImage("Drinkmaskinen.png");
+
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
 }
