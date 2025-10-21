@@ -105,7 +105,7 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
   fill(colorText);
   textAlign(CENTER, BOTTOM);
   textSize(20);
-  text(drink.importantIngredients(), topLeftX+(buttonWidth/2), topLeftY+buttonHeight);
+  text(drink.importantIngredients(30), topLeftX+(buttonWidth/2), topLeftY+buttonHeight);
   
   if(buttonClicked(topLeftX, topLeftY, buttonWidth, buttonHeight)){
     selectedDrink = drink;

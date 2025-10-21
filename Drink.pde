@@ -16,10 +16,13 @@ class Drink{
     image(icon, centerX,  centerY, imgWidth, imgHeight);
   }
   
-  String importantIngredients(){
+  String importantIngredients(int maxLength){
     String important = "";
     for(int i = 0; i < usedIngredients.size(); i++){
-      important += usedIngredients.get(i).bottleName + ", ";
+      String possibleAddition = usedIngredients.get(i).bottleName + ", ";
+      if(important.length() + possibleAddition.length() <= maxLength){
+        important += possibleAddition;
+      }
     }
     important = important.substring(0, important.length()-2);
     return important;
