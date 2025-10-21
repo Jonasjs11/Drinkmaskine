@@ -1,12 +1,12 @@
 Bottle selectedBottleToConnect;
 
 void drawBottlesScreen(){
-  background(255);
+  background(oldMoneyBackground);
   
   drawConnectedBottles(selectedBottleToConnect != null);
   
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(630, 0, 15, 1200);
   
   drawAllBottles();
@@ -14,11 +14,11 @@ void drawBottlesScreen(){
 
 void drawConnectedBottles(boolean visTilføjFlasker){
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(50, 50, 530, 100);
   fill(#FFFFFF);
   rect(60, 60, 510, 80);
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Tilkoblede flasker", 315, 100);
@@ -27,10 +27,10 @@ void drawConnectedBottles(boolean visTilføjFlasker){
     int topLeftCornerX = 50+((i%2)*290);
     int topLeftCornerY = 200+((i/2)*200);
     
-    fill(#D9D9D9);
+    fill(oldMoneyLight);
     rect(topLeftCornerX, topLeftCornerY, 240, 150);
     
-    fill(#000000);
+    fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(20);
     text("Flaske " + (i+1), topLeftCornerX+120, topLeftCornerY+10);
@@ -57,7 +57,7 @@ void drawConnectedBottles(boolean visTilføjFlasker){
 boolean selectedBottleThisTime;
 void drawAllBottles(){
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(695, 0, 1175, 100);
   
   searchBar(705, 10, 830, 80);
@@ -68,15 +68,15 @@ void drawAllBottles(){
     float topLeftY = 205+((i/3)*447.5);
     
     noStroke();
-    fill(#D9D9D9);
+    fill(oldMoneyLight);
     rect(topLeftX, topLeftY, 280, 280);
     
-    fill(#000000);
+    fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(36);
     text(allBottles.get(i).name, topLeftX+140, topLeftY);
     
-    fill(#000000);
+    fill(oldMoneyText);
     textAlign(CENTER, BOTTOM);
     textSize(36);
     text(nf(allBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);

@@ -1,11 +1,11 @@
 
 void drawMainMenuScreen(){
-  background(255);
+  background(oldMoneyBackground);
   
   drawConnectedBottles(true);
   
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(630, 0, 15, 1200);
   rect(1275, 0, 15, 1200);
   
@@ -16,12 +16,12 @@ void drawMainMenuScreen(){
 
 void drawChooseScreenButtons(){
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(1340, 50, 530, 300);
   rect(1340, 450, 530, 300);
   rect(1340, 850, 530, 300);
   
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Drinks", 1605, 150);
@@ -45,13 +45,13 @@ void drawChooseScreenButtons(){
 
 void drawConnectionToMachine(){
   noStroke();
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   
   rect(695, 50, 530, 530);
   
   rect(775, 630, 370, 100);
   
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Disconnect", 960, 680);

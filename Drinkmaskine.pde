@@ -17,6 +17,10 @@ PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
 
+int oldMoneyBackground = #BBA591;
+int oldMoneyLight = #FAECC3;
+int oldMoneyText = #000000;
+
 void setup(){
   size(1920, 1200);
   
