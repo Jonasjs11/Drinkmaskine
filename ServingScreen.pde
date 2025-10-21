@@ -37,7 +37,7 @@ void drawSelectedDrinkPart(){
   fill(colorText);
   textAlign(LEFT, TOP);
   textSize(56);
-  text("Ingredienser:", 550, 250);
+  text("Ingredienser:", 550, 272);
   textAlign(LEFT, CENTER);
   textSize(36);
   for(int i = 0; i < selectedDrink.usedIngredients.size(); i++){
