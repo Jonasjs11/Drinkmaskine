@@ -38,8 +38,13 @@ void drawSelectedDrinkPart(){
   textAlign(LEFT, TOP);
   textSize(56);
   text("Ingredienser:", 550, 250);
+  textAlign(LEFT, CENTER);
   textSize(36);
-  text(" * 4x Tequila\n * 10x Appelsinjuice\n * 1x Grenadine syrup", 550, 347);
+  for(int i = 0; i < selectedDrink.usedIngredients.size(); i++){
+    float ingredientCenterY = 347+(i*35);
+    text(selectedDrink.usedIngredients.get(i).amount + "x " + selectedDrink.usedIngredients.get(i).bottleName, 570, ingredientCenterY);
+    circle(560, ingredientCenterY, 10);
+  }
   
   fill(colorText);
   textAlign(LEFT, TOP);
