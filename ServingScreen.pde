@@ -72,10 +72,9 @@ void drawDrinkSelectionPart(){
   fill(colorDark);
   rect(1150, 0, 720, 100);
   
-  searchBar(1160, 10, 409, 80);
+  searchBar(1160, 10, 509, 80);
   
   imageMode(CENTER);
-  image(searchIcon, 1609, 50, 80, 80);
   image(filterIcon, 1709, 50, 80, 80);
   
   ArrayList<Drink> possibleDrinks = /*getPossibleDrinks()*/allDrinks;

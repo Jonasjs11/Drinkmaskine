@@ -30,6 +30,12 @@ void drawConnectedBottles(boolean visTilføjFlasker){
     fill(oldMoneyLight);
     rect(topLeftCornerX, topLeftCornerY, 240, 150);
     
+    if(connectedBottles[i] == ""){
+      imageMode(CENTER);
+      image(greyBottlesIcon, topLeftCornerX+120,  topLeftCornerY+85, 68, 112);
+    }
+    
+    
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(20);

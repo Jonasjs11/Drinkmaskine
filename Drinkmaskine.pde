@@ -16,6 +16,7 @@ boolean mouseReleased;
 PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
+PImage greyBottlesIcon;
 
 int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
@@ -39,6 +40,7 @@ void setup(){
   filterIcon = loadImage("Filter.png");
   searchIcon = loadImage("Search.png");
   addIcon = loadImage("Add.png");
+  greyBottlesIcon = loadImage("GraaFlasker.png");
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
 }
@@ -151,10 +153,15 @@ void searchBar(int topLeftX, int topLeftY, int barWidth, int barHeight){
   circle(topLeftX+(barHeight/2), topLeftY+(barHeight/2), barHeight);
   rect(topLeftX+(barHeight/2), topLeftY, barWidth-barHeight, barHeight);
   circle(topLeftX+(barHeight/2)+barWidth-barHeight, topLeftY+(barHeight/2), barHeight);
+  
   fill(#000000);
   textAlign(LEFT, CENTER);
   textSize(56);
-  text(currentSearchBarText, topLeftX+(barHeight/2), topLeftY+(barHeight/2));
+  text(currentSearchBarText, topLeftX+barHeight, topLeftY+(barHeight/2));
+  
+  imageMode(CENTER);
+  image(searchIcon, topLeftX+(barHeight/2), topLeftY+(barHeight/2), barHeight-20, barHeight-20);
+  
   if(areaHover(topLeftX, topLeftY, barWidth, barHeight)){
     if(keyPressed){
       currentSearchBarText += key;
