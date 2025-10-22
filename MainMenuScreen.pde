@@ -10,11 +10,7 @@ void drawMainMenuScreen(){
   rect(1275, 0, 15, 1200);
   
   drawChooseScreenButtons();
-  
   drawConnectionToMachine();
-  
-  //Drink maskine image
-  
 }
 
 void drawChooseScreenButtons(){
@@ -51,6 +47,7 @@ void drawConnectionToMachine(){
   fill(oldMoneyLight);
   
   rect(695, 50, 530, 530);
+  
   //Drinkmaskine image:
   image(DrinkMaskine, width/2, 320);
   DrinkMaskine.resize(330, 500);
