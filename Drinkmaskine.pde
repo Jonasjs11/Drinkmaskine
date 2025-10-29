@@ -154,7 +154,9 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
   return false;
 }
 
-String currentSearchBarText;
+String currentSearchBarText = "";
+float searchBarInputWaitStarted = 0;
+final float searchBarInputWaitDuration = 200;
 void resetSearchBar() { currentSearchBarText = ""; }
 void searchBar(int topLeftX, int topLeftY, int barWidth, int barHeight){
   fill(#FFFFFF);
@@ -171,10 +173,29 @@ void searchBar(int topLeftX, int topLeftY, int barWidth, int barHeight){
   image(searchIcon, topLeftX+(barHeight/2), topLeftY+(barHeight/2), barHeight-20, barHeight-20);
   
   if(areaHover(topLeftX, topLeftY, barWidth, barHeight)){
-    if(keyPressed){
-      currentSearchBarText += key;
+    if(keyPressed && millis() - searchBarInputWaitStarted >= searchBarInputWaitDuration){
+      if(key != CODED){
+        if (key == BACKSPACE) {
+          if (currentSearchBarText.length()>0) {
+            currentSearchBarText = currentSearchBarText.substring(0, currentSearchBarText.length()-1);
+          }
+        } else {
+          currentSearchBarText += key;
+        }
+      } 
+      searchBarInputWaitStarted = millis();
     }
   }
+}
+
+ArrayList<Drink> removeNonSearched(ArrayList<Drink> original){
+  ArrayList<Drink> n = new ArrayList<Drink>();
+  for(int i = 0; i < original.size(); i++){
+    if(original.get(i).name.contains(currentSearchBarText) || original.get(i).name.toLowerCase().contains(currentSearchBarText) || original.get(i).name.toUpperCase().contains(currentSearchBarText)){
+      n.add(original.get(i));
+    }
+  }
+  return n;
 }
 
 ArrayList<Drink> getPossibleDrinks(){

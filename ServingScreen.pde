@@ -82,10 +82,10 @@ void drawDrinkSelectionPart(){
   imageMode(CENTER);
   image(filterIcon, 1709, 50, 80, 80);
   
-  ArrayList<Drink> possibleDrinks = /*getPossibleDrinks()*/allDrinks;
+  ArrayList<Drink> possibleDrinkChoices = removeNonSearched(allDrinks);
   
-  for(int i = 0; i < possibleDrinks.size(); i++){
-    drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinks.get(i));
+  for(int i = 0; i < possibleDrinkChoices.size(); i++){
+    drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
   }
 }
 
@@ -109,5 +109,6 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
   
   if(buttonClicked(topLeftX, topLeftY, buttonWidth, buttonHeight)){
     selectedDrink = drink;
+    resetSearchBar();
   }
 }
