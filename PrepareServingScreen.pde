@@ -1,6 +1,10 @@
 void drawPrepareServingScreen(){
-  background(255);
+  background(oldMoneyBackground);
   
+  fill(oldMoneyLight);
+  rect(630, 0, 15, 1200); // Seperationslinje
+    
+    
   drawColorschemeSelection();
   drawServingSettings();
   drawBeginServingButton();
@@ -25,7 +29,7 @@ void drawBeginServingButton(){
   }
   rect(983, 1050, 500, 100);
   
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Begynd servering", 1233, 1100);
@@ -34,13 +38,13 @@ void drawBeginServingButton(){
 void drawColorschemeSelection(){
   noStroke();
   
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(50, 150, 430, 100);
   
   fill(#FFFFFF);
   rect(60, 160, 410, 80);
   
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Farveskemaer", 265, 200);
@@ -55,10 +59,10 @@ void drawColorschemeSelection(){
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme){
   noStroke();
   
-  fill(#D9D9D9);
+  fill(oldMoneyLight);
   rect(topLeftX, topLeftY, 160, 100);
   
-  fill(#000000);
+  fill(oldMoneyText);
   textAlign(LEFT, CENTER);
   textSize(36);
   text(name, topLeftX+160, topLeftY+50);
