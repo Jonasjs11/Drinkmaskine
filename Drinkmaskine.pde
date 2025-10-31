@@ -12,10 +12,10 @@ ArrayList<Drink> allDrinks;
 String[] connectedBottles;
 
 boolean mouseReleased;
-
 PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
+PImage oldMoneyKnap;
 
 int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
@@ -25,6 +25,10 @@ void setup(){
   size(1920, 1200);
   
   switchToScreenMainMenu();
+  
+
+  oldMoneyKnap = loadImage("Nyt Projekt 3 (1).png");
+   
   
   allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();

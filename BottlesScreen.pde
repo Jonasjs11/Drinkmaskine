@@ -1,9 +1,13 @@
 Bottle selectedBottleToConnect;
 
 void drawBottlesScreen(){
+  
   background(oldMoneyBackground);
   
+ 
   drawConnectedBottles(selectedBottleToConnect != null);
+ 
+ 
   
   noStroke();
   fill(oldMoneyLight);
@@ -91,4 +95,6 @@ void drawAllBottles(){
     }
   }
   selectedBottleThisTime = false;
+   
+   image(oldMoneyKnap,1680, 4);
 }
