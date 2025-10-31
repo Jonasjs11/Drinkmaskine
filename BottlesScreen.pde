@@ -99,4 +99,13 @@ void drawAllBottles() {
     }
   }
   selectedBottleThisTime = false;
+  
+  //tilbage knappen
+   image(oldMoneyKnap,1680, 4);
+   
+    if (mousePressed &&
+      mouseX >= 1750 && mouseX <= 1900 &&
+      mouseY >= 4 && mouseY <= 104) {
+    switchToScreenMainMenu();
+  }
 }

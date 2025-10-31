@@ -16,6 +16,7 @@ boolean mouseReleased;
 PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
+PImage oldMoneyKnap;
 
 PImage greyBottlesIcon;
 
@@ -30,6 +31,8 @@ void setup(){
   size(1920, 1200);
   
   switchToScreenMainMenu();
+  
+  oldMoneyKnap = loadImage("Nyt Projekt 3 (1).png");
   
   allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();
