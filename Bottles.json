@@ -1,22 +1,27 @@
 [
   {
     "name": "Vodka",
-    "alcoholPercentage": 37.5
+    "alcoholPercentage": 37.5,
+    "iconPath": "Vodka.png"
   },
   {
     "name": "Tequila",
-    "alcoholPercentage": 20
+    "alcoholPercentage": 20,
+    "iconPath": "Tequila.png"
   },
   {
     "name": "Appelsinjuice",
-    "alcoholPercentage": 0
+    "alcoholPercentage": 0,
+    "iconPath": "Appelsinjuice.png"
   },
   {
     "name": "Coca Cola",
-    "alcoholPercentage": 0
+    "alcoholPercentage": 0,
+    "iconPath": "Coca Cola.png"
   },
   {
     "name": "Fuze Tea Peach",
-    "alcoholPercentage": 0
+    "alcoholPercentage": 0,
+    "iconPath": "Fuze Tea Peach.png"
   }
 ]
