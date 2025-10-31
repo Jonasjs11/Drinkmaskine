@@ -29,6 +29,21 @@ class Drink{
     image(icon, centerX,  centerY, imgWidth, imgHeight);
   }
   
+  boolean isAlcoholFree(){
+    boolean alcoholFree = true;
+    for(int i = 0; i < usedIngredients.size(); i++){
+      Bottle b = findBottleFromName(usedIngredients.get(i).bottleName);
+      if(b == null){
+        alcoholFree = false;
+        continue;
+      }
+      if(b.isAlchoholFree() == false){
+        alcoholFree = false;
+      }
+    }
+    return alcoholFree;
+  }
+  
   String importantIngredients(int maxLength){
     String important = "";
     for(int i = 0; i < usedIngredients.size(); i++){

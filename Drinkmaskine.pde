@@ -212,6 +212,13 @@ ArrayList<Drink> getPossibleDrinks(){
   ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
   
   for(int d = 0; d < allDrinks.size(); d++){
+    if(nonAlkohol){
+      if(allDrinks.get(d).isAlcoholFree() == false){
+        continue;
+      }
+    }
+    
+    
     boolean hasAllIngredients = true;
     
     for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
@@ -236,6 +243,15 @@ boolean hasConnectedBottle(String bottle){
     }
   }
   return hasConnectedBottle;
+}
+
+Bottle findBottleFromName(String name){
+  for(int i = 0; i < allBottles.size(); i++){
+    if(allBottles.get(i).name.equals(name)){
+      return allBottles.get(i);
+    }
+  }
+  return null;
 }
 
 void switchToScreenMainMenu(){
