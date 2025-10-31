@@ -14,4 +14,9 @@ class Bottle{
   boolean isAlchoholFree(){
     return alcoholPercentage == 0;
   }
+  
+  void showIcon(int centerX, int centerY, int imgWidth, int imgHeight){
+    imageMode(CENTER);
+    image(icon, centerX,  centerY, imgWidth, imgHeight);
+  }
 }

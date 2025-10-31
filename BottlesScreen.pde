@@ -89,6 +89,8 @@ void drawAllBottles() {
     textSize(36);
     text(nf(allBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
 
+    allBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
+
     if (mouseReleased && selectedBottleThisTime == false) {
       if (areaHover((int)topLeftX, (int)topLeftY, 280, 280)) {
         selectedBottleToConnect = allBottles.get(i);
