@@ -4,11 +4,16 @@ int colorText = #000000;
 
 Drink selectedDrink;
 
+ArrayList<Drink> possibleDrinksTemp;
+
 void drawServingScreen(){
   background(colorBackground);
   
   if(selectedDrink == null){
-    selectedDrink = getPossibleDrinks().get(0);
+    possibleDrinksTemp = getPossibleDrinks();
+    if(possibleDrinksTemp.size() > 0) { 
+      selectedDrink = possibleDrinksTemp.get(0);
+    }
   }
   
   drawSelectedDrinkPart();
@@ -21,6 +26,19 @@ void drawServingScreen(){
 
 void drawSelectedDrinkPart(){
   noStroke();
+  
+  if(selectedDrink == null){
+    fill(colorText);
+    textAlign(CENTER, CENTER);
+    textSize(100);
+    text("Ingen mulige drinks", 545, 250);
+    textSize(40);
+    text("Prøv at connecte nogle flasker i virkeligheden,", 545, 500);
+    text("og sørg for at de samme flasker er connect i programmet.", 545, 550);
+    text("Flasker kan tilføjes under flaske-skærmen, som kan tilgås", 545, 600);
+    text("fra \"Flasker\" knappen i main menu.", 545, 650);
+    return;
+  }
   
   fill(colorDark);
   rect(50, 50, 450, 450);
