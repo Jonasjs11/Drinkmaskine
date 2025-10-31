@@ -1,10 +1,14 @@
 class Bottle{
   String name;
   float alcoholPercentage;
+  PImage icon;
+  String iconPath;
   
-  Bottle(String name, float alcoholPercentage){
+  Bottle(String name, float alcoholPercentage, PImage icon, String iconPath){
     this.name = name;
     this.alcoholPercentage = alcoholPercentage;
+    this.icon = icon;
+    this.iconPath = iconPath;
   }
   
   boolean isAlchoholFree(){

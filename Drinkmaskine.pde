@@ -88,6 +88,7 @@ void saveDrinksAndBottles(){
 
     bottle.setString("name", allBottles.get(i).name);
     bottle.setFloat("alcoholPercentage", allBottles.get(i).alcoholPercentage);
+    bottle.setString("iconPath", allBottles.get(i).iconPath);
     
     bottlesJSON.setJSONObject(i, bottle);
   }
@@ -102,6 +103,7 @@ void saveDrinksAndBottles(){
 
     drink.setString("name", allDrinks.get(i).name);
     drink.setString("iconPath", allDrinks.get(i).iconPath);
+    drink.setString("description", allDrinks.get(i).description);
     
     JSONArray ingredients = new JSONArray();
     for(int ingr = 0; ingr < allDrinks.get(i).usedIngredients.size(); ingr++){
@@ -121,7 +123,8 @@ void loadDrinksAndBottles(){
   JSONArray bottlesJSON = loadJSONArray("Bottles.json");
   for(int i = 0; i < bottlesJSON.size(); i++){
     JSONObject bottle = bottlesJSON.getJSONObject(i);
-    allBottles.add(new Bottle(bottle.getString("name"), bottle.getFloat("alcoholPercentage")));
+    String iconPath = bottle.getString("iconPath");
+    allBottles.add(new Bottle(bottle.getString("name"), bottle.getFloat("alcoholPercentage"), loadImage(iconPath), iconPath));
   }
   
   JSONArray drinksJSON = loadJSONArray("Drinks.json");
@@ -136,8 +139,9 @@ void loadDrinksAndBottles(){
     }
     
     String name = drink.getString("name");
+    String description = drink.getString("description");
     String iconPath = drink.getString("iconPath");
-    allDrinks.add(new Drink(name, loadImage(iconPath), iconPath, ingredients));
+    allDrinks.add(new Drink(name, description, loadImage(iconPath), iconPath, ingredients));
   }
 }
 
