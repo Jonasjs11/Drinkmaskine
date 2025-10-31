@@ -30,7 +30,6 @@ boolean password;
 boolean mouseClicked;
 boolean nonAlkohol;
 
-
 void setup(){
   size(1920, 1200);
   
