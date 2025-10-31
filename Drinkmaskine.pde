@@ -26,6 +26,10 @@ int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
 int oldMoneyText = #000000;
 
+boolean password;
+boolean mouseClicked;
+boolean nonAlkohol;
+
 
 void setup(){
   size(1920, 1200);
