@@ -221,7 +221,7 @@ ArrayList<Drink> getPossibleDrinks(){
 boolean hasConnectedBottle(String bottle){
   boolean hasConnectedBottle = false;
   for(int i = 0; i < connectedBottles.length; i++){
-    if(connectedBottles[i] == bottle){
+    if(connectedBottles[i].equals(bottle)){
       hasConnectedBottle = true;
     }
   }

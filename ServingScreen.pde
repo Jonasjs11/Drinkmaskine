@@ -8,7 +8,7 @@ void drawServingScreen(){
   background(colorBackground);
   
   if(selectedDrink == null){
-    selectedDrink = allDrinks.get(0);
+    selectedDrink = getPossibleDrinks().get(0);
   }
   
   drawSelectedDrinkPart();
@@ -82,7 +82,7 @@ void drawDrinkSelectionPart(){
   imageMode(CENTER);
   image(filterIcon, 1709, 50, 80, 80);
   
-  ArrayList<Drink> possibleDrinkChoices = removeNonSearched(allDrinks);
+  ArrayList<Drink> possibleDrinkChoices = removeNonSearched(getPossibleDrinks());
   
   for(int i = 0; i < possibleDrinkChoices.size(); i++){
     drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
