@@ -29,6 +29,9 @@ int oldMoneyText = #000000;
 boolean password;
 boolean mouseClicked;
 boolean nonAlkohol;
+String enteredPassword = "";
+String savedPassword = "";
+boolean passwordEntering;
 
 void setup(){
   size(1920, 1200);

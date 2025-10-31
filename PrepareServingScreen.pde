@@ -12,50 +12,120 @@ void drawPrepareServingScreen() {
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 150, 630, 100);
+  rect(width/2, 150, 630, 100);   
+  rect(width/2-10, 290, 70, 70);
   rect(width/2-10, 390, 70, 70);
-  rect(width/2-10, 490, 70, 70);
 
   fill(#FFFFFF);
   rect(width/2+10, 160, 610, 80);
+  rect(width/2-5, 295, 60, 60);
   rect(width/2-5, 395, 60, 60);
-  rect(width/2-5, 495, 60, 60);
 
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Serveringsindstillinger", width/2+310, 200);
-  text("Adgangskode", width/2+230, 420);
-  text("Alkohol", width/2+160, 520);
+  text("Adgangskode", width/2+230, 320);
+  text("Alkohol", width/2+160, 420);
 
-  if (password) fill(0);
-  else fill(255);
-  rect(width/2, 400, 50, 50);
+  if (savedPassword.equals("")) fill(255);
+  else fill(0);
+  rect(width/2, 300, 50, 50);
 
-  // Detect click
-  if (areaHover(width/2, 400, 60, 60)) {
+  if (areaHover(width/2, 300, 60, 60)) {
     if (mousePressed && !mouseClicked) {
-      password = !password;
+      passwordEntering = true;
+      enteredPassword = "";
       mouseClicked = true;
     }
-    if (!mousePressed) {
-      mouseClicked = false;
-    }
+    if (!mousePressed) mouseClicked = false;
   }
 
   if (nonAlkohol) fill(0);
   else fill(255);
-  rect(width/2, 500, 50, 50);
+  rect(width/2, 400, 50, 50);
 
-  // Detect click
-  if (areaHover(width/2, 500, 60, 60)) {
+  if (areaHover(width/2, 400, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       nonAlkohol = !nonAlkohol;
       mouseClicked = true;
     }
-    if (!mousePressed) {
-      mouseClicked = false;
+    if (!mousePressed) mouseClicked = false;
+  }
+
+  if (passwordEntering) {
+    int LeftX = width/2;
+    int LeftY = 500;
+
+    fill(oldMoneyLight);
+    rect(LeftX, LeftY, 400, 550, 20);
+    fill(oldMoneyText);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("Indtast adgangskode", LeftX+200, LeftY + 40);
+
+    fill(255);
+    rect(LeftX + 50, LeftY + 70, 300, 50, 10);
+    fill(0);
+    text("*".repeat(enteredPassword.length()), LeftX+200, LeftY + 95);
+
+    int num = 1;
+    for (int r = 0; r < 3; r++) {
+      for (int c = 0; c < 3; c++) {
+        if (areaHover(LeftX+50 + c*100, LeftY + 140 + r*100, 80, 80)) {
+          if (mousePressed && !mouseClicked) {
+            enteredPassword += str(num);
+            mouseClicked = true;
+          }
+          if (!mousePressed) mouseClicked = false;
+        }
+        fill(255);
+        rect(LeftX + 50 + c*100, LeftY + 140 + r*100, 80, 80, 15);
+        fill(0);
+        textSize(36);
+        textAlign(CENTER, CENTER);
+        text(str(num), LeftX + 50 + c*100 + 40, LeftY + 140 + r*100 + 40);
+        num++;
+      }
     }
+
+    if (areaHover(LeftX + 150, LeftY + 440, 80, 80)) {
+      if (mousePressed && !mouseClicked) {
+        enteredPassword += "0";
+        mouseClicked = true;
+      }
+      if (!mousePressed) mouseClicked = false;
+    }
+    fill(255);
+    rect(LeftX + 150, LeftY + 440, 80, 80, 15);
+    fill(0);
+    text("0", LeftX + 150 + 40, LeftY + 440 + 40);
+
+    if (areaHover(LeftX + 50, LeftY + 440, 80, 80)) {
+      if (mousePressed && !mouseClicked) {
+        if (enteredPassword.length() > 0) enteredPassword = enteredPassword.substring(0, enteredPassword.length()-1);
+        mouseClicked = true;
+      }
+      if (!mousePressed) mouseClicked = false;
+    }
+    fill(200, 50, 50);
+    rect(LeftX + 50, LeftY + 440, 80, 80, 15);
+    fill(255);
+    text("DEL", LeftX + 50 + 40, LeftY + 440 + 40);
+
+    if (areaHover(LeftX + 250, LeftY + 440, 80, 80)) {
+      if (mousePressed && !mouseClicked) {
+        savedPassword = enteredPassword;
+        passwordEntering = false;
+        mouseClicked = true;
+        println(savedPassword);
+      }
+      if (!mousePressed) mouseClicked = false;
+    }
+    fill(149, 146, 88);
+    rect(LeftX + 250, LeftY + 440, 80, 80, 15);
+    fill(0);
+    text("OK", LeftX + 250 + 40, LeftY + 440 + 40);
   }
 }
 
