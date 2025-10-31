@@ -78,7 +78,9 @@ void drawAllBottles() {
     noStroke();
     fill(oldMoneyLight);
     rect(topLeftX, topLeftY, 280, 280);
-
+    
+    allBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
+    
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(36);
@@ -88,8 +90,6 @@ void drawAllBottles() {
     textAlign(CENTER, BOTTOM);
     textSize(36);
     text(nf(allBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
-
-    allBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
 
     if (mouseReleased && selectedBottleThisTime == false) {
       if (areaHover((int)topLeftX, (int)topLeftY, 280, 280)) {

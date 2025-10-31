@@ -14,6 +14,17 @@ class Drink{
   }
   
   void showIcon(int centerX, int centerY, int imgWidth, int imgHeight){
+    if(icon == null){
+      fill(255);
+      rect(centerX-imgWidth/2, centerY-imgHeight/2, imgWidth, imgHeight);
+      
+      textAlign(CENTER, CENTER);
+      fill(0);
+      textSize(imgHeight/2);
+      text("?", centerX, centerY);
+      return;
+    }
+    
     imageMode(CENTER);
     image(icon, centerX,  centerY, imgWidth, imgHeight);
   }

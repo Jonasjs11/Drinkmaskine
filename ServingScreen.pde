@@ -113,12 +113,12 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
   fill(colorDark);
   rect(topLeftX, topLeftY, buttonWidth, buttonHeight);
   
+  drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
+  
   fill(colorText);
   textAlign(CENTER, TOP);
   textSize(36);
   text(drink.name, topLeftX+(buttonWidth/2), topLeftY);
-  
-  drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
   
   fill(colorText);
   textAlign(CENTER, BOTTOM);
