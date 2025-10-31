@@ -33,10 +33,7 @@ void drawSelectedDrinkPart(){
     textSize(100);
     text("Ingen mulige drinks", 545, 250);
     textSize(40);
-    text("Prøv at connecte nogle flasker i virkeligheden,", 545, 500);
-    text("og sørg for at de samme flasker er connect i programmet.", 545, 550);
-    text("Flasker kan tilføjes under flaske-skærmen, som kan tilgås", 545, 600);
-    text("fra \"Flasker\" knappen i main menu.", 545, 650);
+    text("Prøv at connecte nogle flasker i virkeligheden,\nog sørg for at de samme flasker er connectede i programmet.\nFlasker kan tilføjes under flaske-skærmen, som kan tilgås\nfra \"Flasker\" knappen i main menu.", 545, 500);
     return;
   }
   
