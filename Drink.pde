@@ -29,6 +29,25 @@ class Drink{
     important = important.substring(0, important.length()-2);
     return important;
   }
+  
+  String getFormattedDescription(int maxLineSize, int hardLimit){
+    String formatted = "";
+    int charsAdded = 0;
+    for(int i = 0; i < description.length(); i++){
+      formatted += description.substring(i, i+1);
+      charsAdded++;
+      if(charsAdded > hardLimit){
+        formatted += "-\n";
+        charsAdded = 0;
+        continue;
+      }
+      if(charsAdded > maxLineSize && description.substring(i, i+1).equals(" ")){
+        formatted += "\n";
+        charsAdded = 0;
+      }
+    }
+    return formatted;
+  }
 }
 
 class Ingredient{

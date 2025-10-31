@@ -69,7 +69,7 @@ void drawSelectedDrinkPart(){
   textSize(56);
   text("Information", 50, 550);
   textSize(36);
-  text("Tequila sunrise blev\nopfundet i Sausalito,\nCalifornien i 1970\'erne.\nDen har sit navn efter\ndens udseende af en\nomvendt solopgang.\n \n10% alkohol", 50, 625);
+  text(selectedDrink.getFormattedDescription(18, 24), 50, 625);
   
   
   
