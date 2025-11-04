@@ -53,9 +53,23 @@ void drawConnectionToMachine(){
   DrinkMaskine.resize(330, 500);
   
   rect(775, 630, 370, 100);
-  
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
-  text("Disconnect", 960, 680);
+  text("Ping", 960, 680);
+  if(areaHover(775, 630, 370, 100) && mouseReleased){
+    connectionLines = loadStrings("http://10.194.220.128/STRING");
+  }
+  
+  if(connectionLines == null){
+    fill(200, 50, 50);
+    textAlign(CENTER, CENTER);
+    textSize(56);
+    text("UNABLE TO CONNECT", 960, 880);
+  } else{
+    fill(oldMoneyText);
+    textAlign(CENTER, CENTER);
+    textSize(56);
+    text("CONNECTION\nSUCCESSFULL", 960, 880);
+  }
 }

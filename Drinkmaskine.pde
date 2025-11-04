@@ -31,6 +31,8 @@ boolean password;
 boolean mouseClicked;
 boolean nonAlkohol;
 
+String[] connectionLines;
+
 void setup(){
   size(1920, 1200);
   
@@ -60,6 +62,8 @@ void setup(){
 
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
+  
+  connectionLines = loadStrings("http://10.194.220.128/STRING");
 }
 
 void draw(){
