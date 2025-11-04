@@ -25,8 +25,9 @@ void drawServingSettings() {
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Serveringsindstillinger", width/2+310, 200);
-  text("Brug adgangskode", width/2+230, 420);
-  text("Kun alkoholfrie drinks", width/2+160, 520);
+  textAlign(LEFT, CENTER);
+  text("Brug adgangskode", 1030, 420);
+  text("Kun alkoholfrie drinks", 1030, 520);
 
   if (password) fill(0);
   else fill(255);
