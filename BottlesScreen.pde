@@ -78,7 +78,9 @@ void drawAllBottles() {
     noStroke();
     fill(oldMoneyLight);
     rect(topLeftX, topLeftY, 280, 280);
-
+    
+    allBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
+    
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(36);

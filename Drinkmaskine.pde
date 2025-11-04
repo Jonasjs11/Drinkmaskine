@@ -17,6 +17,7 @@ PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
 PImage oldMoneyKnap;
+PImage oldMoneyLogo;
 
 PImage greyBottlesIcon;
 
@@ -39,6 +40,8 @@ void setup(){
   switchToScreenMainMenu();
   
   oldMoneyKnap = loadImage("Nyt Projekt 3 (1).png");
+  
+  oldMoneyLogo = loadImage("OldMoneyLogo.png");
   
   allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();
@@ -63,6 +66,11 @@ void setup(){
 }
 
 void draw(){
+  if(millis() < 3000){
+    drawSplashScreen();
+    return;
+  }
+  
   if(screenMainMenu){
     drawMainMenuScreen();
   }
@@ -86,6 +94,29 @@ void mouseReleased(){
   mouseReleased = true;
 }
 
+void roundRect(int topLeftX, int topLeftY, int rectWidth, int rectHeight, int radius){
+  circle(topLeftX+radius, topLeftY+radius, radius*2);
+  circle(topLeftX+rectWidth-radius, topLeftY+radius, radius*2);
+  circle(topLeftX+radius, topLeftY+rectHeight-radius, radius*2);
+  circle(topLeftX+rectWidth-radius, topLeftY+rectHeight-radius, radius*2);
+  
+  rect(topLeftX+radius, topLeftY, rectWidth-(radius*2), radius);
+  rect(topLeftX+radius, topLeftY+rectHeight-radius, rectWidth-(radius*2), radius);
+  
+  rect(topLeftX, topLeftY+radius, rectWidth, rectHeight-(radius*2));
+}
+
+void drawSplashScreen(){
+  background(oldMoneyBackground);
+  
+  noStroke();
+  fill(oldMoneyLight);
+  roundRect(width/2-325, height/2-325, 650, 650, 20);
+  
+  imageMode(CENTER);
+  image(oldMoneyLogo, width/2, height/2, 600, 600);
+}
+
 void saveDrinksAndBottles(){
   JSONArray bottlesJSON = new JSONArray();
 
@@ -94,6 +125,7 @@ void saveDrinksAndBottles(){
 
     bottle.setString("name", allBottles.get(i).name);
     bottle.setFloat("alcoholPercentage", allBottles.get(i).alcoholPercentage);
+    bottle.setString("iconPath", allBottles.get(i).iconPath);
     
     bottlesJSON.setJSONObject(i, bottle);
   }
@@ -108,6 +140,7 @@ void saveDrinksAndBottles(){
 
     drink.setString("name", allDrinks.get(i).name);
     drink.setString("iconPath", allDrinks.get(i).iconPath);
+    drink.setString("description", allDrinks.get(i).description);
     
     JSONArray ingredients = new JSONArray();
     for(int ingr = 0; ingr < allDrinks.get(i).usedIngredients.size(); ingr++){
@@ -127,7 +160,8 @@ void loadDrinksAndBottles(){
   JSONArray bottlesJSON = loadJSONArray("Bottles.json");
   for(int i = 0; i < bottlesJSON.size(); i++){
     JSONObject bottle = bottlesJSON.getJSONObject(i);
-    allBottles.add(new Bottle(bottle.getString("name"), bottle.getFloat("alcoholPercentage")));
+    String iconPath = bottle.getString("iconPath");
+    allBottles.add(new Bottle(bottle.getString("name"), bottle.getFloat("alcoholPercentage"), loadImage(iconPath), iconPath));
   }
   
   JSONArray drinksJSON = loadJSONArray("Drinks.json");
@@ -142,8 +176,9 @@ void loadDrinksAndBottles(){
     }
     
     String name = drink.getString("name");
+    String description = drink.getString("description");
     String iconPath = drink.getString("iconPath");
-    allDrinks.add(new Drink(name, loadImage(iconPath), iconPath, ingredients));
+    allDrinks.add(new Drink(name, description, loadImage(iconPath), iconPath, ingredients));
   }
 }
 
@@ -211,6 +246,13 @@ ArrayList<Drink> getPossibleDrinks(){
   ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
   
   for(int d = 0; d < allDrinks.size(); d++){
+    if(nonAlkohol){
+      if(allDrinks.get(d).isAlcoholFree() == false){
+        continue;
+      }
+    }
+    
+    
     boolean hasAllIngredients = true;
     
     for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
@@ -235,6 +277,15 @@ boolean hasConnectedBottle(String bottle){
     }
   }
   return hasConnectedBottle;
+}
+
+Bottle findBottleFromName(String name){
+  for(int i = 0; i < allBottles.size(); i++){
+    if(allBottles.get(i).name.equals(name)){
+      return allBottles.get(i);
+    }
+  }
+  return null;
 }
 
 void switchToScreenMainMenu(){

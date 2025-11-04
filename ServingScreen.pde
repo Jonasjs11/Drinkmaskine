@@ -33,10 +33,7 @@ void drawSelectedDrinkPart(){
     textSize(100);
     text("Ingen mulige drinks", 545, 250);
     textSize(40);
-    text("Prøv at connecte nogle flasker i virkeligheden,", 545, 500);
-    text("og sørg for at de samme flasker er connect i programmet.", 545, 550);
-    text("Flasker kan tilføjes under flaske-skærmen, som kan tilgås", 545, 600);
-    text("fra \"Flasker\" knappen i main menu.", 545, 650);
+    text("Prøv at connecte nogle flasker i virkeligheden,\nog sørg for at de samme flasker er connectede i programmet.\nFlasker kan tilføjes under flaske-skærmen, som kan tilgås\nfra \"Flasker\" knappen i main menu.", 545, 500);
     return;
   }
   
@@ -69,7 +66,7 @@ void drawSelectedDrinkPart(){
   textSize(56);
   text("Information", 50, 550);
   textSize(36);
-  text("Tequila sunrise blev\nopfundet i Sausalito,\nCalifornien i 1970\'erne.\nDen har sit navn efter\ndens udseende af en\nomvendt solopgang.\n \n10% alkohol", 50, 625);
+  text(selectedDrink.getFormattedDescription(18, 24), 50, 625);
   
   
   
@@ -113,12 +110,12 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
   fill(colorDark);
   rect(topLeftX, topLeftY, buttonWidth, buttonHeight);
   
+  drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
+  
   fill(colorText);
   textAlign(CENTER, TOP);
   textSize(36);
   text(drink.name, topLeftX+(buttonWidth/2), topLeftY);
-  
-  drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
   
   fill(colorText);
   textAlign(CENTER, BOTTOM);
