@@ -8,6 +8,15 @@ void drawPrepareServingScreen() {
   drawColorschemeSelection();
   drawServingSettings();
   drawBeginServingButton();
+  
+   image(oldMoneyKnap,1850, 62);
+   
+     //tilbage knappen  
+    if (mouseReleased &&
+      mouseX >= 1850 && mouseX <= 1950 &&
+      mouseY >= 40 && mouseY <= 114) {
+    switchToScreenMainMenu();
+  }
 }
 
 void drawServingSettings() {
