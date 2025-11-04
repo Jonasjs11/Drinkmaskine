@@ -17,6 +17,7 @@ PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
 PImage oldMoneyKnap;
+PImage oldMoneyLogo;
 
 PImage greyBottlesIcon;
 
@@ -36,6 +37,8 @@ void setup(){
   switchToScreenMainMenu();
   
   oldMoneyKnap = loadImage("Nyt Projekt 3 (1).png");
+  
+  oldMoneyLogo = loadImage("OldMoneyLogo.png");
   
   allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();
@@ -60,6 +63,11 @@ void setup(){
 }
 
 void draw(){
+  if(millis() < 3000){
+    drawSplashScreen();
+    return;
+  }
+  
   if(screenMainMenu){
     drawMainMenuScreen();
   }
@@ -81,6 +89,29 @@ void draw(){
 
 void mouseReleased(){
   mouseReleased = true;
+}
+
+void roundRect(int topLeftX, int topLeftY, int rectWidth, int rectHeight, int radius){
+  circle(topLeftX+radius, topLeftY+radius, radius*2);
+  circle(topLeftX+rectWidth-radius, topLeftY+radius, radius*2);
+  circle(topLeftX+radius, topLeftY+rectHeight-radius, radius*2);
+  circle(topLeftX+rectWidth-radius, topLeftY+rectHeight-radius, radius*2);
+  
+  rect(topLeftX+radius, topLeftY, rectWidth-(radius*2), radius);
+  rect(topLeftX+radius, topLeftY+rectHeight-radius, rectWidth-(radius*2), radius);
+  
+  rect(topLeftX, topLeftY+radius, rectWidth, rectHeight-(radius*2));
+}
+
+void drawSplashScreen(){
+  background(oldMoneyBackground);
+  
+  noStroke();
+  fill(oldMoneyLight);
+  roundRect(width/2-325, height/2-325, 650, 650, 20);
+  
+  imageMode(CENTER);
+  image(oldMoneyLogo, width/2, height/2, 600, 600);
 }
 
 void saveDrinksAndBottles(){
