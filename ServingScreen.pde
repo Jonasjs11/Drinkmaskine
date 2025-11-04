@@ -14,6 +14,7 @@ void drawServingScreen(){
     if(possibleDrinksTemp.size() > 0) { 
       selectedDrink = possibleDrinksTemp.get(0);
     }
+   
   }
   
   drawSelectedDrinkPart();
@@ -102,6 +103,15 @@ void drawDrinkSelectionPart(){
   for(int i = 0; i < possibleDrinkChoices.size(); i++){
     drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
   }
+  
+  image(oldMoneyKnap,1750, 200);
+   
+  //tilbage knappen  
+  if (mouseReleased &&
+    mouseX >= 1850 && mouseX <= 1950 &&
+    mouseY >= 40 && mouseY <= 114) {
+    switchToScreenPrepareServing();
+  }
 }
 
 void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight, Drink drink){
@@ -126,4 +136,8 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
     selectedDrink = drink;
     resetSearchBar();
   }
+ 
+
+  
+  
 }

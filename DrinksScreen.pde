@@ -11,12 +11,13 @@ void drawDrinksScreen(){
   allDrinks.get(0).showIcon(600, 100, 200, 100);
   ellipse(900, 150, 100, 200);
   allDrinks.get(0).showIcon(900, 150, 100, 200);
-  image(oldMoneyKnap,1680, 59);
+  image(oldMoneyKnap,1750, 59);
    
-   
-     if (mousePressed &&
-      mouseX >= 1680 && mouseX <= 1780 &&
-      mouseY >= 4 && mouseY <= 104) {
+     //tilbage knappen  
+    if (mouseReleased &&
+      mouseX >= 1700 && mouseX <= 1900 &&
+      mouseY >= 30 && mouseY <= 104) {
     switchToScreenMainMenu();
   }
+  
 }
