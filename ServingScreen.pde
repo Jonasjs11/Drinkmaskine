@@ -14,6 +14,7 @@ void drawServingScreen(){
     if(possibleDrinksTemp.size() > 0) { 
       selectedDrink = possibleDrinksTemp.get(0);
     }
+   
   }
   
   drawSelectedDrinkPart();
@@ -77,7 +78,7 @@ void drawSelectedDrinkPart(){
       fill(colorDark-#101010);
     }
     if(mouseReleased){
-      println("HÆLD DRINK OP HER");
+      sendDrinkCommand(selectedDrink);
     }
   }
   rect(550, 1025, 490, 125);
@@ -86,6 +87,22 @@ void drawSelectedDrinkPart(){
   textAlign(CENTER, CENTER);
   textSize(64);
   text("Begynd servering", 795, 1087.5);
+}
+
+void sendDrinkCommand(Drink drink){
+  String request = "http://10.194.220.128/STRING?";
+  
+  boolean isFirst = true;
+  for(Ingredient ingredient : drink.usedIngredients){
+    /*if(isFirst){
+      request += "M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
+    } else{
+      request += "&M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
+    }*/
+    isFirst = false;
+  }
+  
+  String[] feedback = loadStrings(request);
 }
 
 void drawDrinkSelectionPart(){
@@ -101,6 +118,15 @@ void drawDrinkSelectionPart(){
   
   for(int i = 0; i < possibleDrinkChoices.size(); i++){
     drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
+  }
+  
+  image(oldMoneyKnap,1750, 200);
+   
+  //tilbage knappen  
+  if (mouseReleased &&
+    mouseX >= 1850 && mouseX <= 1950 &&
+    mouseY >= 40 && mouseY <= 114) {
+    switchToScreenPrepareServing();
   }
 }
 
@@ -126,4 +152,8 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
     selectedDrink = drink;
     resetSearchBar();
   }
+ 
+
+  
+  
 }
