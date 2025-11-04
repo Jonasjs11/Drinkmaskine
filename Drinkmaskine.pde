@@ -17,6 +17,7 @@ PImage filterIcon;
 PImage searchIcon;
 PImage addIcon;
 PImage oldMoneyKnap;
+PImage oldMoneyLogo;
 
 PImage greyBottlesIcon;
 
@@ -36,6 +37,8 @@ void setup(){
   switchToScreenMainMenu();
   
   oldMoneyKnap = loadImage("Nyt Projekt 3 (1).png");
+  
+  oldMoneyLogo = loadImage("OldMoneyLogo.png");
   
   allBottles = new ArrayList<Bottle>();
   allDrinks = new ArrayList<Drink>();
@@ -60,6 +63,11 @@ void setup(){
 }
 
 void draw(){
+  if(millis() < 3000){
+    drawSplashScreen();
+    return;
+  }
+  
   if(screenMainMenu){
     drawMainMenuScreen();
   }
@@ -81,6 +89,17 @@ void draw(){
 
 void mouseReleased(){
   mouseReleased = true;
+}
+
+void drawSplashScreen(){
+  background(oldMoneyBackground);
+  
+  noStroke();
+  fill(oldMoneyLight);
+  rect(width/2-325, height/2-325, 650, 650);
+  
+  imageMode(CENTER);
+  image(oldMoneyLogo, width/2, height/2, 600, 600);
 }
 
 void saveDrinksAndBottles(){
