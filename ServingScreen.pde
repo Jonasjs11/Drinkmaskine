@@ -77,7 +77,7 @@ void drawSelectedDrinkPart(){
       fill(colorDark-#101010);
     }
     if(mouseReleased){
-      println("HÆLD DRINK OP HER");
+      sendDrinkCommand(selectedDrink);
     }
   }
   rect(550, 1025, 490, 125);
@@ -86,6 +86,22 @@ void drawSelectedDrinkPart(){
   textAlign(CENTER, CENTER);
   textSize(64);
   text("Begynd servering", 795, 1087.5);
+}
+
+void sendDrinkCommand(Drink drink){
+  String request = "http://10.194.220.128/STRING?";
+  
+  boolean isFirst = true;
+  for(Ingredient ingredient : drink.usedIngredients){
+    /*if(isFirst){
+      request += "M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
+    } else{
+      request += "&M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
+    }*/
+    isFirst = false;
+  }
+  
+  String[] feedback = loadStrings(request);
 }
 
 void drawDrinkSelectionPart(){
