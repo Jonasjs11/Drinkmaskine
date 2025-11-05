@@ -27,6 +27,7 @@ int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
 int oldMoneyText = #000000;
 
+boolean passwordCheckMode = false;
 boolean password;
 boolean mouseClicked;
 boolean nonAlkohol;

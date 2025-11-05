@@ -8,20 +8,20 @@ void drawPrepareServingScreen() {
   drawColorschemeSelection();
   drawServingSettings();
   drawBeginServingButton();
-  
-   image(oldMoneyKnap,1850, 62);
-   
-     //tilbage knappen  
-    if (mouseReleased &&
-      mouseX >= 1850 && mouseX <= 1950 &&
-      mouseY >= 40 && mouseY <= 114) {
+
+  image(oldMoneyKnap, 1850, 62);
+
+  //tilbage knappen
+  if (mouseReleased &&
+    mouseX >= 1850 && mouseX <= 1950 &&
+    mouseY >= 40 && mouseY <= 114) {
     switchToScreenMainMenu();
   }
 }
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 150, 630, 100);   
+  rect(width/2, 150, 630, 100);
   rect(width/2-10, 290, 70, 70);
   rect(width/2-10, 390, 70, 70);
 
@@ -37,7 +37,10 @@ void drawServingSettings() {
   text("Adgangskode", width/2+230, 320);
   text("Alkohol", width/2+160, 420);
 
-  if (savedPassword.equals("")) fill(255);
+  if (savedPassword.equals("")){ 
+    fill(255);
+    password = false;
+  }
   else fill(0);
   rect(width/2, 300, 50, 50);
 
@@ -127,6 +130,7 @@ void drawServingSettings() {
         savedPassword = enteredPassword;
         passwordEntering = false;
         mouseClicked = true;
+        password = true;
         println(savedPassword);
       }
       if (!mousePressed) mouseClicked = false;
@@ -204,8 +208,8 @@ void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int
   rect(topLeftX+103, topLeftY+10, 47, 80);
 
   if (buttonClicked(topLeftX, topLeftY, 160, 100)) {
-    colorBackground = colorBackgroundScheme;
-    colorDark = colorDarkScheme;
-    colorText = colorTextScheme;
+    oldMoneyBackground = colorBackgroundScheme;
+    oldMoneyLight = colorDarkScheme;
+    oldMoneyText = colorTextScheme;
   }
 }
