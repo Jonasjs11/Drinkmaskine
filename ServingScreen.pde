@@ -115,7 +115,7 @@ void drawDrinkSelectionPart() {
   if(areaHover(1669, 10, 80, 80) && mouseReleased){
     showFilterCurrently = !showFilterCurrently;
   }
-  if(showFilterCurrently){ showFilter(1709, 90); }
+  if(showFilterCurrently){ showFilter(1709, 120); }
   
   ArrayList<Drink> possibleDrinkChoices = removeNonSearched(getPossibleDrinks());
 
