@@ -211,7 +211,7 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
 
 boolean filterNonAlcoholic;
 boolean filterUnderSixPercent;
-void resetFiler() {
+void resetFilter() {
   filterNonAlcoholic = false;
   filterUnderSixPercent = false;
 }
@@ -371,6 +371,7 @@ void switchToScreenMainMenu(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenBottles(){
   screenMainMenu = false;
@@ -380,6 +381,7 @@ void switchToScreenBottles(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenDrinks(){
   screenMainMenu = false;
@@ -389,6 +391,7 @@ void switchToScreenDrinks(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenPrepareServing(){
   screenMainMenu = false;
@@ -398,6 +401,7 @@ void switchToScreenPrepareServing(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenServing(){
   screenMainMenu = false;
@@ -407,4 +411,5 @@ void switchToScreenServing(){
   screenServing = true;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
