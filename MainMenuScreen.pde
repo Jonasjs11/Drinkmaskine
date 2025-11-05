@@ -58,7 +58,7 @@ void drawConnectionToMachine(){
   textSize(56);
   text("Ping", 960, 680);
   if(areaHover(775, 630, 370, 100) && mouseReleased){
-    connectionLines = loadStrings("http://10.194.220.128/STRING");
+    connectionLines = loadStrings("http://"+ip+"/STRING");
     triedToPing = true;
   }
   
