@@ -36,6 +36,11 @@ String enteredPassword = "";
 String savedPassword = "";
 String attemptedPassword = "";
 
+int shake = 0;
+int shakeTimer = 0;
+float shakeDirection = 1;
+boolean doShake = false;
+String adgangskodeTekst = "Indtast adgangskode";
 
 
 String[] connectionLines;

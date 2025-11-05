@@ -66,8 +66,8 @@ void drawServingSettings() {
   }
 
   if (passwordEntering) {
-    int LeftX = width/2;
-    int LeftY = 500;
+    int LeftX = width/2+350;
+    int LeftY = 300;
 
     fill(oldMoneyLight);
     rect(LeftX, LeftY, 400, 550, 20);
