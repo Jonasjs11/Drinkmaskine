@@ -2,7 +2,7 @@
   {
     "name": "Vodka",
     "alcoholPercentage": 37.5,
-    "iconPath": "Vodka.png"
+    "iconPath": "vodka.png"
   },
   {
     "name": "Tequila",
@@ -23,5 +23,10 @@
     "name": "Fuze Tea Peach",
     "alcoholPercentage": 0,
     "iconPath": "Fuze Tea Peach.png"
+  },
+  {
+    "name": "Grenadine syrup",
+    "alcoholPercentage": 0,
+    "iconPath": "GrenadineSyrup.png"
   }
 ]
