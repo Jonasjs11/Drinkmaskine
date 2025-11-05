@@ -1,9 +1,13 @@
+int colorBackground = #BBA591;
+int colorDark = #FAECC3;
+int colorText = #000000;
+
 Drink selectedDrink;
 
 ArrayList<Drink> possibleDrinksTemp;
 
 void drawServingScreen() {
-  background(oldMoneyBackground);
+  background(colorBackground);
 
   if (selectedDrink == null) {
     possibleDrinksTemp = getPossibleDrinks();
@@ -14,7 +18,7 @@ void drawServingScreen() {
 
   drawSelectedDrinkPart();
 
-  fill(oldMoneyLight);
+  fill(colorDark);
   rect(1090, 0, 10, 1200);
 
   drawDrinkSelectionPart();
@@ -24,7 +28,7 @@ void drawSelectedDrinkPart() {
   noStroke();
 
   if (selectedDrink == null) {
-    fill(oldMoneyText);
+    fill(colorText);
     textAlign(CENTER, CENTER);
     textSize(100);
     text("Ingen mulige drinks", 545, 250);
@@ -33,19 +37,19 @@ void drawSelectedDrinkPart() {
     return;
   }
 
-  fill(oldMoneyLight);
+  fill(colorDark);
   rect(50, 50, 450, 450);
   selectedDrink.showIcon(275, 275, 450, 450);
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(LEFT, BOTTOM);
   textSize(80);
   text(selectedDrink.name, 550, 250);
 
-  fill(oldMoneyLight);
+  fill(colorDark);
   rect(550, 248, 490, 4);//Linje til at seperere navn og ingredienser
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(LEFT, TOP);
   textSize(56);
   text("Ingredienser:", 550, 272);
@@ -57,7 +61,7 @@ void drawSelectedDrinkPart() {
     circle(560, ingredientCenterY, 10);
   }
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(LEFT, TOP);
   textSize(56);
   text("Information", 50, 550);
@@ -66,11 +70,11 @@ void drawSelectedDrinkPart() {
 
 
 
-  fill(oldMoneyLight);
+  fill(colorDark);
   if (areaHover(550, 1025, 490, 125)) {
-    fill(oldMoneyLight+#101010);
+    fill(colorDark+#101010);
     if (mousePressed) {
-      fill(oldMoneyLight-#101010);
+      fill(colorDark-#101010);
     }
     if (mouseReleased) {
       sendDrinkCommand(selectedDrink);
@@ -78,7 +82,7 @@ void drawSelectedDrinkPart() {
   }
   rect(550, 1025, 490, 125);
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(CENTER, CENTER);
   textSize(64);
   text("Begynd servering", 795, 1087.5);
@@ -101,7 +105,7 @@ void sendDrinkCommand(Drink drink) {
 }
 
 void drawDrinkSelectionPart() {
-  fill(oldMoneyLight);
+  fill(colorDark);
   rect(1150, 0, 720, 100);
 
   searchBar(1160, 10, 509, 80);
@@ -121,9 +125,9 @@ if (passwordCheckMode) {
     int LeftX = width/2+350;
     int LeftY = 200;
 
-    fill(oldMoneyLight);
+    fill(colorDark);
     rect(LeftX, LeftY, 400, 550, 20);
-    fill(oldMoneyText);
+    fill(colorText);
     textSize(32);
     textAlign(CENTER, CENTER);
     text("Indtast adgangskode", LeftX+200, LeftY + 40);
@@ -217,17 +221,17 @@ if (passwordCheckMode) {
 void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight, Drink drink) {
   noStroke();
 
-  fill(oldMoneyLight);
+  fill(colorDark);
   rect(topLeftX, topLeftY, buttonWidth, buttonHeight);
 
   drink.showIcon(topLeftX+140, topLeftY+140, 240, 240);
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(CENTER, TOP);
   textSize(36);
   text(drink.name, topLeftX+(buttonWidth/2), topLeftY);
 
-  fill(oldMoneyText);
+  fill(colorText);
   textAlign(CENTER, BOTTOM);
   textSize(20);
   text(drink.importantIngredients(30), topLeftX+(buttonWidth/2), topLeftY+buttonHeight);

@@ -179,12 +179,12 @@ void drawColorschemeSelection() {
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Farveskemaer", 265, 200);
-
-  drawColorschemeSelectionScheme(50, 300, "Light mode", #FFFFFF, #D9D9D9, #000000);
-  drawColorschemeSelectionScheme(50, 450, "Dark mode", #000000, #D9D9D9, #FFFFFF);
-  drawColorschemeSelectionScheme(50, 600, "Pink mode", #FFE1FD, #865280, #000000);
-  drawColorschemeSelectionScheme(50, 750, "Blue mode", #DAFFFE, #5175AE, #000000);
-  drawColorschemeSelectionScheme(50, 900, "Yellow mode", #FBFFDA, #896446, #000000);
+  
+  drawColorschemeSelectionScheme(50, 300, "Old Money mode", #BBA591, #FAECC3, #000000);
+  drawColorschemeSelectionScheme(50, 450, "Light mode", #FFFFFF, #D9D9D9, #000000);
+  drawColorschemeSelectionScheme(50, 600, "Dark mode", #000000, #D9D9D9, #FFFFFF);
+  drawColorschemeSelectionScheme(50, 750, "Pink mode", #FFE1FD, #865280, #000000);
+  drawColorschemeSelectionScheme(50, 900, "Blue mode", #DAFFFE, #5175AE, #000000);
 }
 
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme) {
@@ -208,8 +208,8 @@ void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int
   rect(topLeftX+103, topLeftY+10, 47, 80);
 
   if (buttonClicked(topLeftX, topLeftY, 160, 100)) {
-    oldMoneyBackground = colorBackgroundScheme;
-    oldMoneyLight = colorDarkScheme;
-    oldMoneyText = colorTextScheme;
+    colorBackground = colorBackgroundScheme;
+    colorDark = colorDarkScheme;
+    colorText = colorTextScheme;
   }
 }
