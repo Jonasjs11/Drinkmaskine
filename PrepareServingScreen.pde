@@ -8,20 +8,20 @@ void drawPrepareServingScreen() {
   drawColorschemeSelection();
   drawServingSettings();
   drawBeginServingButton();
-  
-   image(oldMoneyKnap,1850, 62);
-   
-     //tilbage knappen  
-    if (mouseReleased &&
-      mouseX >= 1850 && mouseX <= 1950 &&
-      mouseY >= 40 && mouseY <= 114) {
+
+  image(oldMoneyKnap, 1850, 62);
+
+  //tilbage knappen
+  if (mouseReleased &&
+    mouseX >= 1850 && mouseX <= 1950 &&
+    mouseY >= 40 && mouseY <= 114) {
     switchToScreenMainMenu();
   }
 }
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 150, 630, 100);   
+  rect(width/2, 150, 630, 100);
   rect(width/2-10, 290, 70, 70);
   rect(width/2-10, 390, 70, 70);
 
@@ -37,7 +37,10 @@ void drawServingSettings() {
   text("Adgangskode", width/2+230, 320);
   text("Alkohol", width/2+160, 420);
 
-  if (savedPassword.equals("")) fill(255);
+  if (savedPassword.equals("")){ 
+    fill(255);
+    password = false;
+  }
   else fill(0);
   rect(width/2, 300, 50, 50);
 
@@ -127,6 +130,7 @@ void drawServingSettings() {
         savedPassword = enteredPassword;
         passwordEntering = false;
         mouseClicked = true;
+        password = true;
         println(savedPassword);
       }
       if (!mousePressed) mouseClicked = false;
@@ -175,12 +179,12 @@ void drawColorschemeSelection() {
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Farveskemaer", 265, 200);
-
-  drawColorschemeSelectionScheme(50, 300, "Light mode", #FFFFFF, #D9D9D9, #000000);
-  drawColorschemeSelectionScheme(50, 450, "Dark mode", #000000, #D9D9D9, #FFFFFF);
-  drawColorschemeSelectionScheme(50, 600, "Pink mode", #FFE1FD, #865280, #000000);
-  drawColorschemeSelectionScheme(50, 750, "Blue mode", #DAFFFE, #5175AE, #000000);
-  drawColorschemeSelectionScheme(50, 900, "Yellow mode", #FBFFDA, #896446, #000000);
+  
+  drawColorschemeSelectionScheme(50, 300, "Old Money mode", #BBA591, #FAECC3, #000000);
+  drawColorschemeSelectionScheme(50, 450, "Light mode", #FFFFFF, #D9D9D9, #000000);
+  drawColorschemeSelectionScheme(50, 600, "Dark mode", #000000, #D9D9D9, #FFFFFF);
+  drawColorschemeSelectionScheme(50, 750, "Pink mode", #FFE1FD, #865280, #000000);
+  drawColorschemeSelectionScheme(50, 900, "Blue mode", #DAFFFE, #5175AE, #000000);
 }
 
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme) {
