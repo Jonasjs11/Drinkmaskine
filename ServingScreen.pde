@@ -119,7 +119,7 @@ void drawDrinkSelectionPart() {
     drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
   }
 
-  image(oldMoneyKnap, 1750, 200);
+  image(oldMoneyKnap, 1800, 55);
 
 if (passwordCheckMode) {
     int LeftX = width/2+350;
@@ -207,8 +207,8 @@ if (passwordCheckMode) {
     
   // tilbage knappen
   if (mouseReleased &&
-    mouseX >= 1850 && mouseX <= 1950 &&
-    mouseY >= 40 && mouseY <= 114) {  
+    mouseX >= 1700 && mouseX <= 1950 &&
+    mouseY >= 30 && mouseY <= 130) {  
       println(password);
     if (password) {
       passwordEntering = false;
