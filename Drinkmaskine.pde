@@ -37,7 +37,7 @@ String savedPassword = "";
 String attemptedPassword = "";
 
 
-
+String ip = "10.194.220.129";
 String[] connectionLines;
 boolean triedToPing;
 

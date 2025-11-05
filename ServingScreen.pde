@@ -89,7 +89,7 @@ void drawSelectedDrinkPart() {
 }
 
 void sendDrinkCommand(Drink drink) {
-  String request = "http://10.194.220.128/STRING?";
+  String request = "http://"+ip+"/STRING?";
 
   boolean isFirst = true;
   for(Ingredient ingredient : drink.usedIngredients){
