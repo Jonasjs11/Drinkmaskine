@@ -300,13 +300,26 @@ ArrayList<Drink> getPossibleDrinks(){
   ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
   
   for(int d = 0; d < allDrinks.size(); d++){
+    //PREPARE SERVING SCREEN SETTINGS
     if(nonAlkohol){
       if(allDrinks.get(d).isAlcoholFree() == false){
         continue;
       }
     }
     
+    //FILTERS
+    if(filterNonAlcoholic){
+      if(allDrinks.get(d).isAlcoholFree() == false){
+        continue;
+      }
+    }
+    if(filterUnderSixPercent){
+      if(allDrinks.get(d).getAlcoholPercent() > 6){
+        continue;
+      }
+    }
     
+    //IS POSSIBLE WITH BOTTLE COMBINATION
     boolean hasAllIngredients = true;
     for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
       if(hasConnectedBottle(allDrinks.get(d).usedIngredients.get(i).bottleName) == false){
