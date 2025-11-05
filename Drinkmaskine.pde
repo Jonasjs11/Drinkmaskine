@@ -292,7 +292,7 @@ int getConnectedBottleIndex(String usedIngredients) {
       return i;
     }
   }
-  return 0;
+  return -1;
 }
 
 Bottle findBottleFromName(String name){

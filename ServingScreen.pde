@@ -94,11 +94,11 @@ void sendDrinkCommand(Drink drink){
   
   boolean isFirst = true;
   for(Ingredient ingredient : drink.usedIngredients){
-    /*if(isFirst){
+    if(isFirst){
       request += "M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
     } else{
       request += "&M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
-    }*/
+    }
     isFirst = false;
   }
   
