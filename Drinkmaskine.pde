@@ -38,6 +38,7 @@ String attemptedPassword = "";
 
 
 String[] connectionLines;
+boolean triedToPing;
 
 void setup(){
   size(1920, 1200);
@@ -69,7 +70,8 @@ void setup(){
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
   
-  connectionLines = loadStrings("http://10.194.220.128/STRING");
+  connectionLines = null;
+  triedToPing = false;
 }
 
 void draw(){
