@@ -30,9 +30,12 @@ int oldMoneyText = #000000;
 boolean password;
 boolean mouseClicked;
 boolean nonAlkohol;
+boolean passwordEntering;
 String enteredPassword = "";
 String savedPassword = "";
-boolean passwordEntering;
+String attemptedPassword = "";
+
+
 
 String[] connectionLines;
 
@@ -160,6 +163,7 @@ void saveDrinksAndBottles(){
 
   saveJSONArray(drinksJSON, "Drinks.json");
 }
+
 void loadDrinksAndBottles(){
   JSONArray bottlesJSON = loadJSONArray("Bottles.json");
   for(int i = 0; i < bottlesJSON.size(); i++){
@@ -258,7 +262,6 @@ ArrayList<Drink> getPossibleDrinks(){
     
     
     boolean hasAllIngredients = true;
-    
     for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
       if(hasConnectedBottle(allDrinks.get(d).usedIngredients.get(i).bottleName) == false){
         hasAllIngredients = false;
@@ -281,6 +284,15 @@ boolean hasConnectedBottle(String bottle){
     }
   }
   return hasConnectedBottle;
+}
+
+int getConnectedBottleIndex(String usedIngredients) {
+  for (int i = 0; i < connectedBottles.length; i++) {
+    if (connectedBottles[i].equals(usedIngredients)) {
+      return i;
+    }
+  }
+  return 0;
 }
 
 Bottle findBottleFromName(String name){

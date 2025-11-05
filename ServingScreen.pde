@@ -152,8 +152,5 @@ void drawDrinkSelectionButton(int topLeftX, int topLeftY, int buttonWidth, int b
     selectedDrink = drink;
     resetSearchBar();
   }
- 
-
-  
   
 }
