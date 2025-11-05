@@ -211,7 +211,7 @@ if (passwordCheckMode) {
     
   // tilbage knappen
   if (mouseReleased &&
-    mouseX >= 1700 && mouseX <= 1950 &&
+    mouseX >= 1800 && mouseX <= 1950 &&
     mouseY >= 30 && mouseY <= 130) {  
       println(password);
     if (password) {
