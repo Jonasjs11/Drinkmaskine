@@ -314,7 +314,7 @@ ArrayList<Drink> getPossibleDrinks(){
       }
     }
     if(filterUnderSixPercent){
-      if(allDrinks.get(d).getAlcoholPercent() > 6){
+      if(allDrinks.get(d).getAlcoholPercent() > 0.06){
         continue;
       }
     }
