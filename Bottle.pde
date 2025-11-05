@@ -1,4 +1,4 @@
-class Bottle{
+  class Bottle{
   String name;
   float alcoholPercentage;
   PImage icon;

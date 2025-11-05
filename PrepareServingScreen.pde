@@ -13,8 +13,8 @@ void drawPrepareServingScreen() {
 
   //tilbage knappen
   if (mouseReleased &&
-    mouseX >= 1850 && mouseX <= 1950 &&
-    mouseY >= 40 && mouseY <= 114) {
+    mouseX >= 1849 && mouseX <= 1950 &&
+    mouseY >= 62 && mouseY <= 114) {
     switchToScreenMainMenu();
   }
 }
