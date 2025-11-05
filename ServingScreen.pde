@@ -109,10 +109,14 @@ void drawDrinkSelectionPart() {
   rect(1150, 0, 720, 100);
 
   searchBar(1160, 10, 509, 80);
-
+  
   imageMode(CENTER);
   image(filterIcon, 1709, 50, 80, 80);
-
+  if(areaHover(1669, 10, 80, 80) && mouseReleased){
+    showFilterCurrently = !showFilterCurrently;
+  }
+  if(showFilterCurrently){ showFilter(1709, 90); }
+  
   ArrayList<Drink> possibleDrinkChoices = removeNonSearched(getPossibleDrinks());
 
   for (int i = 0; i < possibleDrinkChoices.size(); i++) {

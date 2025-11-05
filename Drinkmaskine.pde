@@ -209,6 +209,20 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
   return false;
 }
 
+boolean filterNonAlcoholic;
+boolean filterUnderSixPercent;
+void resetFiler() {
+  filterNonAlcoholic = false;
+  filterUnderSixPercent = false;
+}
+boolean showFilterCurrently;
+void showFilter(int topCenterX, int topCenterY){
+  fill(oldMoneyLight);
+  int filterWidth = 200;
+  int filterHeight = 400;
+  rect(topCenterX-(filterWidth/2), topCenterY, filterWidth, filterHeight);
+}
+
 String currentSearchBarText = "";
 float searchBarInputWaitStarted = 0;
 final float searchBarInputWaitDuration = 200;
