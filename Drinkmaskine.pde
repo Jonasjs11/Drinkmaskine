@@ -42,8 +42,9 @@ float shakeDirection = 1;
 boolean doShake = false;
 String adgangskodeTekst = "Indtast adgangskode";
 
-
+String ip = "10.194.220.129";
 String[] connectionLines;
+boolean triedToPing;
 
 void setup(){
   size(1920, 1200);
@@ -75,7 +76,8 @@ void setup(){
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
   
-  connectionLines = loadStrings("http://10.194.220.128/STRING");
+  connectionLines = null;
+  triedToPing = false;
 }
 
 void draw(){
@@ -212,6 +214,49 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
   return false;
 }
 
+boolean filterNonAlcoholic;
+boolean filterUnderSixPercent;
+void resetFilter() {
+  filterNonAlcoholic = false;
+  filterUnderSixPercent = false;
+}
+boolean showFilterCurrently;
+void showFilter(int topCenterX, int topCenterY){
+  int filterWidth = 200;
+  int filterHeight = 110;
+  
+  int topLeftX = topCenterX-(filterWidth/2);
+  
+  fill(oldMoneyLight);
+  rect(topLeftX, topCenterY, filterWidth, filterHeight);
+  
+  
+  if(areaHover(topLeftX+10, topCenterY+10, 40, 40) && mouseReleased){ filterNonAlcoholic = !filterNonAlcoholic; }
+  fill(255);
+  rect(topLeftX+10, topCenterY+10, 40, 40);
+  if(filterNonAlcoholic){
+    fill(0);
+    rect(topLeftX+15, topCenterY+15, 30, 30);
+  }
+  fill(oldMoneyText);
+  textSize(20);
+  textAlign(LEFT, CENTER);
+  text("Non-alchoholic", topLeftX+60, topCenterY+30);
+  
+  
+  if(areaHover(topLeftX+10, topCenterY+50, 40, 40) && mouseReleased){ filterUnderSixPercent = !filterUnderSixPercent; }
+  fill(255);
+  rect(topLeftX+10, topCenterY+60, 40, 40);
+  if(filterUnderSixPercent){
+    fill(0);
+    rect(topLeftX+15, topCenterY+65, 30, 30);
+  }
+  fill(oldMoneyText);
+  textSize(20);
+  textAlign(LEFT, CENTER);
+  text("Under 6%", topLeftX+60, topCenterY+80);
+}
+
 String currentSearchBarText = "";
 float searchBarInputWaitStarted = 0;
 final float searchBarInputWaitDuration = 200;
@@ -260,13 +305,26 @@ ArrayList<Drink> getPossibleDrinks(){
   ArrayList<Drink> possibleDrinks = new ArrayList<Drink>();
   
   for(int d = 0; d < allDrinks.size(); d++){
+    //PREPARE SERVING SCREEN SETTINGS
     if(nonAlkohol){
       if(allDrinks.get(d).isAlcoholFree() == false){
         continue;
       }
     }
     
+    //FILTERS
+    if(filterNonAlcoholic){
+      if(allDrinks.get(d).isAlcoholFree() == false){
+        continue;
+      }
+    }
+    if(filterUnderSixPercent){
+      if(allDrinks.get(d).getAlcoholPercent() > 0.06){
+        continue;
+      }
+    }
     
+    //IS POSSIBLE WITH BOTTLE COMBINATION
     boolean hasAllIngredients = true;
     for(int i = 0; i < allDrinks.get(d).usedIngredients.size(); i++){
       if(hasConnectedBottle(allDrinks.get(d).usedIngredients.get(i).bottleName) == false){
@@ -298,7 +356,7 @@ int getConnectedBottleIndex(String usedIngredients) {
       return i;
     }
   }
-  return 0;
+  return -1;
 }
 
 Bottle findBottleFromName(String name){
@@ -318,6 +376,7 @@ void switchToScreenMainMenu(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenBottles(){
   screenMainMenu = false;
@@ -327,6 +386,7 @@ void switchToScreenBottles(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenDrinks(){
   screenMainMenu = false;
@@ -336,6 +396,7 @@ void switchToScreenDrinks(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenPrepareServing(){
   screenMainMenu = false;
@@ -345,6 +406,7 @@ void switchToScreenPrepareServing(){
   screenServing = false;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }
 void switchToScreenServing(){
   screenMainMenu = false;
@@ -354,4 +416,5 @@ void switchToScreenServing(){
   screenServing = true;
   resetSearchBar();
   selectedBottleToConnect = null;
+  resetFilter();
 }

@@ -23,5 +23,35 @@
     "name": "Fuze Tea Peach",
     "alcoholPercentage": 0,
     "iconPath": "Fuze Tea Peach.png"
+  },
+  {
+    "name": "Grenadine syrup",
+    "alcoholPercentage": 0,
+    "iconPath": "GrenadineSyrup.png"
+  },
+  {
+    "name": "Rom",
+    "alcoholPercentage": 37.5,
+    "iconPath": "Rom.png"
+  },
+  {
+    "name": "Whiskey",
+    "alcoholPercentage": 40,
+    "iconPath": "Whiskey.png"
+  },
+  {
+    "name": "Citronsaft",
+    "alcoholPercentage": 0,
+    "iconPath": "Citronsaft"
+  },
+  {
+    "name": "Sukkersirup",
+    "alcoholPercentage": 0,
+    "iconPath": "Sukkersirup"
+  },
+  {
+    "name": "Pasteuriseret æggehvide",
+    "alcoholPercentage": 0,
+    "iconPath": "Pasteuriseret æggehvide"
   }
 ]

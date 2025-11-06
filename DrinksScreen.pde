@@ -15,8 +15,8 @@ void drawDrinksScreen(){
    
      //tilbage knappen  
     if (mouseReleased &&
-      mouseX >= 1700 && mouseX <= 1900 &&
-      mouseY >= 30 && mouseY <= 104) {
+      mouseX >= 1749 && mouseX <= 1900 &&
+      mouseY >= 40 && mouseY <= 120) {
     switchToScreenMainMenu();
   }
   

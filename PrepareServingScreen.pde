@@ -13,8 +13,8 @@ void drawPrepareServingScreen() {
 
   //tilbage knappen
   if (mouseReleased &&
-    mouseX >= 1850 && mouseX <= 1950 &&
-    mouseY >= 40 && mouseY <= 114) {
+    mouseX >= 1849 && mouseX <= 1950 &&
+    mouseY >= 62 && mouseY <= 114) {
     switchToScreenMainMenu();
   }
 }
@@ -181,10 +181,10 @@ void drawColorschemeSelection() {
   text("Farveskemaer", 265, 200);
   
   drawColorschemeSelectionScheme(50, 300, "Old Money mode", #BBA591, #FAECC3, #000000);
-  drawColorschemeSelectionScheme(50, 450, "Light mode", #FFFFFF, #D9D9D9, #000000);
-  drawColorschemeSelectionScheme(50, 600, "Dark mode", #000000, #D9D9D9, #FFFFFF);
-  drawColorschemeSelectionScheme(50, 750, "Pink mode", #FFE1FD, #865280, #000000);
-  drawColorschemeSelectionScheme(50, 900, "Blue mode", #DAFFFE, #5175AE, #000000);
+  drawColorschemeSelectionScheme(50, 450, "Light mode", #ECECEC, #D1D1D1, #000000);
+  drawColorschemeSelectionScheme(50, 600, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
+  drawColorschemeSelectionScheme(50, 750, "Pink mode", #D7A0A0, #AD6060, #000000);
+  drawColorschemeSelectionScheme(50, 900, "Blue mode", #9FC5D6, #5F92AD, #000000);
 }
 
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme) {

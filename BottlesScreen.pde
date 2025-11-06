@@ -106,8 +106,8 @@ void drawAllBottles() {
    image(oldMoneyKnap,1750, 57);
    
     if (mouseReleased &&
-      mouseX >= 1700 && mouseX <= 1900 &&
-      mouseY >= 30 && mouseY <= 104) {
+      mouseX >= 1749 && mouseX <= 1900 &&
+      mouseY >= 56 && mouseY <= 104) {
     switchToScreenMainMenu();
   }
 }

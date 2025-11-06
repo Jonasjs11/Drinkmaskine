@@ -35,6 +35,7 @@ class Drink{
       Bottle b = findBottleFromName(usedIngredients.get(i).bottleName);
       if(b == null){
         alcoholFree = false;
+        println("Unable to find bottle: " + usedIngredients.get(i).bottleName);
         continue;
       }
       if(b.isAlchoholFree() == false){
@@ -42,6 +43,23 @@ class Drink{
       }
     }
     return alcoholFree;
+  }
+  
+  float getAlcoholPercent(){
+    float totalVolume = 0;
+    float alcoholVolume = 0;
+    for(int i = 0; i < usedIngredients.size(); i++){
+      Bottle b = findBottleFromName(usedIngredients.get(i).bottleName);
+      if(b == null){
+        println("Unable to find bottle: " + usedIngredients.get(i).bottleName);
+        alcoholVolume += 100000;
+        continue;
+      }
+      
+      totalVolume += usedIngredients.get(i).amount;
+      alcoholVolume += usedIngredients.get(i).amount * (b.alcoholPercentage * 0.01);
+    }
+    return alcoholVolume/totalVolume;
   }
   
   String importantIngredients(int maxLength){
