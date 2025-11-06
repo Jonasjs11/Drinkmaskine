@@ -101,14 +101,22 @@ void drawAllBottles() {
   fill(oldMoneyLight);
   rect(695, 0, 1175, 100);
   
-  searchBar(705, 10, 830, 80);
+  searchBar(705, 10, 885, 80);
+  
+  imageMode(CENTER);
+  image(filterIcon, 1640, 50, 80, 80);
+  if(areaHover(1640-40, 50-40, 80, 80) && mouseReleased){
+    showFilterCurrently = !showFilterCurrently;
+  }
+  if(showFilterCurrently){ showFilter(1640, 120); }
+  
+  imageMode(CENTER);
+  image(addIcon, 1730, 50, 80, 80);
   
   //tilbage knappen
-  image(oldMoneyKnap,1750, 57);
-   
-  if (mouseReleased &&
-    mouseX >= 1749 && mouseX <= 1900 &&
-    mouseY >= 56 && mouseY <= 104) {
+  imageMode(CENTER);
+  image(oldMoneyLogo, 1820, 50, 80, 80);
+  if (mouseReleased && areaHover(1820-40, 50-40, 80, 80)) {
     switchToScreenMainMenu();
   }
   
