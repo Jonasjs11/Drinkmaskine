@@ -96,7 +96,8 @@ void drawAllBottles() {
     }
   }
   selectedBottleThisTime = false;
-  updateScrollbarToView(100, 2000, 1000);
+  float bottomYOfBottomBottle = 205+(((possibleBottles.size()-1)/3)*447.5);
+  updateScrollbarAreaAndView(100, int(bottomYOfBottomBottle+280+50), 1000);
   
   noStroke();
   fill(oldMoneyLight);
