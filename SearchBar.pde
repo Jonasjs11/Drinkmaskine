@@ -34,8 +34,18 @@ void searchBar(int topLeftX, int topLeftY, int barWidth, int barHeight){
   }
 }
 
-ArrayList<Drink> removeNonSearched(ArrayList<Drink> original){
+ArrayList<Drink> removeNonSearchedDrink(ArrayList<Drink> original){
   ArrayList<Drink> n = new ArrayList<Drink>();
+  for(int i = 0; i < original.size(); i++){
+    if(original.get(i).name.contains(currentSearchBarText) || original.get(i).name.toLowerCase().contains(currentSearchBarText) || original.get(i).name.toUpperCase().contains(currentSearchBarText)){
+      n.add(original.get(i));
+    }
+  }
+  return n;
+}
+
+ArrayList<Bottle> removeNonSearchedBottle(ArrayList<Bottle> original){
+  ArrayList<Bottle> n = new ArrayList<Bottle>();
   for(int i = 0; i < original.size(); i++){
     if(original.get(i).name.contains(currentSearchBarText) || original.get(i).name.toLowerCase().contains(currentSearchBarText) || original.get(i).name.toUpperCase().contains(currentSearchBarText)){
       n.add(original.get(i));

@@ -114,7 +114,7 @@ void drawDrinkSelectionPart() {
 
   searchBar(1160, 10, 509, 80);
   
-  ArrayList<Drink> possibleDrinkChoices = removeNonSearched(getPossibleDrinks());
+  ArrayList<Drink> possibleDrinkChoices = removeNonSearchedDrink(getPossibleDrinks());
 
   for (int i = 0; i < possibleDrinkChoices.size(); i++) {
     drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
