@@ -1,91 +1,104 @@
-class Drink{
+class Drink {
   String name;
   String description;
   PImage icon;
   String iconPath;
   ArrayList<Ingredient> usedIngredients;
-  
-  Drink(String name, String description, PImage icon, String iconPath, ArrayList<Ingredient> usedIngredients){
+
+  Drink(String name, String description, PImage icon, String iconPath, ArrayList<Ingredient> usedIngredients) {
     this.name = name;
     this.description = description;
     this.icon = icon;
     this.iconPath = iconPath;
     this.usedIngredients = usedIngredients;
   }
-  
-  void showIcon(int centerX, int centerY, int imgWidth, int imgHeight){
-    if(icon == null){
+
+  void showName(int centerX, int centerY) {
+    textAlign(CENTER, CENTER);
+    textSize(38);
+    text(name, centerX, centerY);
+  }
+
+  void showImportantIngredients(int centerX, int centerY, int maxLength) {
+    String important = importantIngredients(maxLength);
+    textAlign(CENTER, CENTER);
+    textSize(28);
+    text(important, centerX, centerY);
+  }
+
+  void showIcon(int centerX, int centerY, int imgWidth, int imgHeight) {
+    if (icon == null) {
       fill(255);
       rect(centerX-imgWidth/2, centerY-imgHeight/2, imgWidth, imgHeight);
-      
+
       textAlign(CENTER, CENTER);
       fill(0);
       textSize(imgHeight/2);
       text("?", centerX, centerY);
       return;
     }
-    
+
     imageMode(CENTER);
-    image(icon, centerX,  centerY, imgWidth, imgHeight);
+    image(icon, centerX, centerY, imgWidth, imgHeight);
   }
-  
-  boolean isAlcoholFree(){
+
+  boolean isAlcoholFree() {
     boolean alcoholFree = true;
-    for(int i = 0; i < usedIngredients.size(); i++){
+    for (int i = 0; i < usedIngredients.size(); i++) {
       Bottle b = findBottleFromName(usedIngredients.get(i).bottleName);
-      if(b == null){
+      if (b == null) {
         alcoholFree = false;
         println("Unable to find bottle: " + usedIngredients.get(i).bottleName);
         continue;
       }
-      if(b.isAlchoholFree() == false){
+      if (b.isAlchoholFree() == false) {
         alcoholFree = false;
       }
     }
     return alcoholFree;
   }
-  
-  float getAlcoholPercent(){
+
+  float getAlcoholPercent() {
     float totalVolume = 0;
     float alcoholVolume = 0;
-    for(int i = 0; i < usedIngredients.size(); i++){
+    for (int i = 0; i < usedIngredients.size(); i++) {
       Bottle b = findBottleFromName(usedIngredients.get(i).bottleName);
-      if(b == null){
+      if (b == null) {
         println("Unable to find bottle: " + usedIngredients.get(i).bottleName);
         alcoholVolume += 100000;
         continue;
       }
-      
+
       totalVolume += usedIngredients.get(i).amount;
       alcoholVolume += usedIngredients.get(i).amount * (b.alcoholPercentage * 0.01);
     }
     return alcoholVolume/totalVolume;
   }
-  
-  String importantIngredients(int maxLength){
+
+  String importantIngredients(int maxLength) {
     String important = "";
-    for(int i = 0; i < usedIngredients.size(); i++){
+    for (int i = 0; i < usedIngredients.size(); i++) {
       String possibleAddition = usedIngredients.get(i).bottleName + ", ";
-      if(important.length() + possibleAddition.length() <= maxLength){
+      if (important.length() + possibleAddition.length() <= maxLength) {
         important += possibleAddition;
       }
     }
     important = important.substring(0, important.length()-2);
     return important;
   }
-  
-  String getFormattedDescription(int maxLineSize, int hardLimit){
+
+  String getFormattedDescription(int maxLineSize, int hardLimit) {
     String formatted = "";
     int charsAdded = 0;
-    for(int i = 0; i < description.length(); i++){
+    for (int i = 0; i < description.length(); i++) {
       formatted += description.substring(i, i+1);
       charsAdded++;
-      if(charsAdded > hardLimit){
+      if (charsAdded > hardLimit) {
         formatted += "-\n";
         charsAdded = 0;
         continue;
       }
-      if(charsAdded > maxLineSize && description.substring(i, i+1).equals(" ")){
+      if (charsAdded > maxLineSize && description.substring(i, i+1).equals(" ")) {
         formatted += "\n";
         charsAdded = 0;
       }
@@ -94,11 +107,11 @@ class Drink{
   }
 }
 
-class Ingredient{
+class Ingredient {
   String bottleName;
   int amount;
-  
-  Ingredient(String bottleName, int amount){
+
+  Ingredient(String bottleName, int amount) {
     this.bottleName = bottleName;
     this.amount = amount;
   }
