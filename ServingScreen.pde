@@ -68,7 +68,11 @@ void drawSelectedDrinkPart() {
   textSize(36);
   text(selectedDrink.getFormattedDescription(18, 24), 50, 625);
 
-
+  fill(colorText);
+  textAlign(CENTER, CENTER);
+  textSize(36);
+  String volPercent = str(round(selectedDrink.getAlcoholPercent()*100));
+  text("Samlet alkohol vol%: " + volPercent + "%", 795, 1000);
 
   fill(colorDark);
   if (areaHover(550, 1025, 490, 125)) {
