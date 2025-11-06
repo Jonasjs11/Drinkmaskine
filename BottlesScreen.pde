@@ -79,7 +79,7 @@ void drawAllBottles() {
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(36);
-    text(possibleBottles.get(i).name, topLeftX+140, topLeftY);
+    text(getFormattedString(possibleBottles.get(i).name, 12, 16), topLeftX+140, topLeftY);
 
     fill(oldMoneyText);
     textAlign(CENTER, BOTTOM);
