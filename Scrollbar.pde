@@ -35,5 +35,5 @@ void drawScrollbar(int topRightX, int topRightY, int barWidth, boolean useServin
   
   float percentOfAreaShown = scrollViewSize / (float)(scrollAreaEnd - scrollAreaStart);
   fill(useServingScreenColors ? colorText : oldMoneyText);
-  rect(topRightX-barWidth, topRightY+(scrollbarCurrent-scrollAreaStart)*(percentOfAreaShown), barWidth, scrollViewSize*percentOfAreaShown);
+  rect(topRightX-barWidth+3, topRightY+(scrollbarCurrent-scrollAreaStart)*(percentOfAreaShown)+3, barWidth-6, scrollViewSize*percentOfAreaShown-6);
 }

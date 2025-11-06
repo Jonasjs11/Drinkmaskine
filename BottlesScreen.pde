@@ -122,5 +122,5 @@ void drawAllBottles() {
     switchToScreenMainMenu();
   }
   
-  drawScrollbar(width, 100, 20, false);
+  drawScrollbar(width, 150, 20, false);
 }
