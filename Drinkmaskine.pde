@@ -217,6 +217,7 @@ boolean areaHover(int topLeftX, int topLeftY, int buttonWidth, int buttonHeight)
 boolean filterNonAlcoholic;
 boolean filterUnderSixPercent;
 void resetFilter() {
+  showFilterCurrently = false;
   filterNonAlcoholic = false;
   filterUnderSixPercent = false;
 }
