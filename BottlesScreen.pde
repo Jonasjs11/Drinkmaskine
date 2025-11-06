@@ -65,7 +65,7 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
 boolean selectedBottleThisTime;
 void drawAllBottles() {
   selectedBottleThisTime = false;
-  ArrayList<Bottle> possibleBottles = getFilteredListOfBottles(allBottles);
+  ArrayList<Bottle> possibleBottles = removeNonSearchedBottle(getFilteredListOfBottles(allBottles));
   for (int i = 0; i < possibleBottles.size(); i++) {
     float topLeftX = 695+((i%3)*447.5);
     float topLeftY = 205+((i/3)*447.5) - getScrollViewOffset();
