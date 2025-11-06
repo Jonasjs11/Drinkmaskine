@@ -70,30 +70,7 @@ void drawAllBottles() {
     float topLeftX = 695+((i%3)*447.5);
     float topLeftY = 205+((i/3)*447.5) - getScrollViewOffset();
 
-    noStroke();
-    fill(oldMoneyLight);
-    rect(topLeftX, topLeftY, 280, 280);
-    
-    possibleBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
-    
-    fill(oldMoneyText);
-    textAlign(CENTER, TOP);
-    textSize(36);
-    text(getFormattedString(possibleBottles.get(i).name, 12, 16), topLeftX+140, topLeftY);
-
-    fill(oldMoneyText);
-    textAlign(CENTER, BOTTOM);
-    textSize(36);
-    text(nf(possibleBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
-
-    if (mouseReleased && selectedBottleThisTime == false) {
-      if (areaHover((int)topLeftX, (int)topLeftY, 280, 280)) {
-        selectedBottleToConnect = possibleBottles.get(i);
-        selectedBottleThisTime = true;
-      } else {
-        selectedBottleToConnect = null;
-      }
-    }
+    drawBottleSelectionButton(possibleBottles.get(i), topLeftX, topLeftY);
   }
   selectedBottleThisTime = false;
   float bottomYOfBottomBottle = 205+(((possibleBottles.size()-1)/3)*447.5);
@@ -123,4 +100,33 @@ void drawAllBottles() {
   }
   
   drawScrollbar(width, 150, 20, false);
+}
+
+
+
+void drawBottleSelectionButton(Bottle bottle, float topLeftX, float topLeftY){
+  noStroke();
+  fill(oldMoneyLight);
+  rect(topLeftX, topLeftY, 280, 280);
+    
+  bottle.showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
+    
+  fill(oldMoneyText);
+  textAlign(CENTER, TOP);
+  textSize(36);
+  text(getFormattedString(bottle.name, 12, 16), topLeftX+140, topLeftY);
+
+  fill(oldMoneyText);
+  textAlign(CENTER, BOTTOM);
+  textSize(36);
+  text(nf(bottle.alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
+
+  if (mouseReleased && selectedBottleThisTime == false) {
+    if (areaHover((int)topLeftX, (int)topLeftY, 280, 280)) {
+      selectedBottleToConnect = bottle;
+      selectedBottleThisTime = true;
+    } else {
+      selectedBottleToConnect = null;
+    }
+  }
 }
