@@ -64,12 +64,6 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
 
 boolean selectedBottleThisTime;
 void drawAllBottles() {
-  noStroke();
-  fill(oldMoneyLight);
-  rect(695, 0, 1175, 100);
-
-  searchBar(705, 10, 830, 80);
-
   selectedBottleThisTime = false;
   for (int i = 0; i < allBottles.size(); i++) {
     float topLeftX = 695+((i%3)*447.5);
@@ -102,12 +96,19 @@ void drawAllBottles() {
   }
   selectedBottleThisTime = false;
   
-    //tilbage knappen
-   image(oldMoneyKnap,1750, 57);
+  
+  noStroke();
+  fill(oldMoneyLight);
+  rect(695, 0, 1175, 100);
+  
+  searchBar(705, 10, 830, 80);
+  
+  //tilbage knappen
+  image(oldMoneyKnap,1750, 57);
    
-    if (mouseReleased &&
-      mouseX >= 1749 && mouseX <= 1900 &&
-      mouseY >= 56 && mouseY <= 104) {
+  if (mouseReleased &&
+    mouseX >= 1749 && mouseX <= 1900 &&
+    mouseY >= 56 && mouseY <= 104) {
     switchToScreenMainMenu();
   }
 }
