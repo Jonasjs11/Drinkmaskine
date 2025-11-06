@@ -257,6 +257,26 @@ void showFilter(int topCenterX, int topCenterY){
   textAlign(LEFT, CENTER);
   text("Under 6%", topLeftX+60, topCenterY+80);
 }
+ArrayList<Bottle> getFilteredListOfBottles(ArrayList<Bottle> original){
+  ArrayList<Bottle> filtered = new ArrayList<Bottle>();
+  
+  for(int i = 0; i < original.size(); i++){
+    if(filterNonAlcoholic){
+      if(original.get(i).alcoholPercentage != 0){
+        continue;
+      }
+    }
+    if(filterUnderSixPercent){
+      if(original.get(i).alcoholPercentage > 0.06){
+        continue;
+      }
+    }
+    
+    filtered.add(original.get(i));
+  }
+    
+  return filtered;
+}
 
 String currentSearchBarText = "";
 float searchBarInputWaitStarted = 0;

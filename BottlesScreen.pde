@@ -65,7 +65,8 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
 boolean selectedBottleThisTime;
 void drawAllBottles() {
   selectedBottleThisTime = false;
-  for (int i = 0; i < allBottles.size(); i++) {
+  ArrayList<Bottle> possibleBottles = getFilteredListOfBottles(allBottles);
+  for (int i = 0; i < possibleBottles.size(); i++) {
     float topLeftX = 695+((i%3)*447.5);
     float topLeftY = 205+((i/3)*447.5) - getScrollViewOffset();
 
@@ -73,21 +74,21 @@ void drawAllBottles() {
     fill(oldMoneyLight);
     rect(topLeftX, topLeftY, 280, 280);
     
-    allBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
+    possibleBottles.get(i).showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
     
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
     textSize(36);
-    text(allBottles.get(i).name, topLeftX+140, topLeftY);
+    text(possibleBottles.get(i).name, topLeftX+140, topLeftY);
 
     fill(oldMoneyText);
     textAlign(CENTER, BOTTOM);
     textSize(36);
-    text(nf(allBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
+    text(nf(possibleBottles.get(i).alcoholPercentage)+"%", topLeftX+140, topLeftY+280);
 
     if (mouseReleased && selectedBottleThisTime == false) {
       if (areaHover((int)topLeftX, (int)topLeftY, 280, 280)) {
-        selectedBottleToConnect = allBottles.get(i);
+        selectedBottleToConnect = possibleBottles.get(i);
         selectedBottleThisTime = true;
       } else {
         selectedBottleToConnect = null;
