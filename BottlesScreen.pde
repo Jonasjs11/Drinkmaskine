@@ -67,7 +67,7 @@ void drawAllBottles() {
   selectedBottleThisTime = false;
   for (int i = 0; i < allBottles.size(); i++) {
     float topLeftX = 695+((i%3)*447.5);
-    float topLeftY = 205+((i/3)*447.5);
+    float topLeftY = 205+((i/3)*447.5) - getScrollViewOffset();
 
     noStroke();
     fill(oldMoneyLight);
@@ -111,4 +111,6 @@ void drawAllBottles() {
     mouseY >= 56 && mouseY <= 104) {
     switchToScreenMainMenu();
   }
+  
+  drawScrollbar(width, 100, 20);
 }
