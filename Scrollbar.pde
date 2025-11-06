@@ -7,7 +7,7 @@ int scrollbarSensitivity = 100;
 void mouseWheel(MouseEvent event) {
   float e = event.getCount();
   scrollbarCurrent += e * scrollbarSensitivity;
-  scrollbarCurrent = min(max(scrollbarCurrent, scrollAreaYStart), scrollAreaYEnd);
+  scrollbarCurrent = min(max(scrollbarCurrent, scrollAreaYStart), scrollAreaYEnd - scrollViewHeight);
 }
 
 int getScrollViewOffset(){
@@ -25,4 +25,7 @@ void drawScrollbar(int topRightX, int topRightY, int barWidth){
   noStroke();
   fill(oldMoneyLight);
   rect(topRightX-barWidth, topRightY, barWidth, scrollViewHeight);
+  
+  float percentOfAreaShown = scrollViewHeight / (scrollAreaYEnd - scrollAreaYStart);
+  //rect(, , , );
 }
