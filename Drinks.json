@@ -2,7 +2,7 @@
   {
     "name": "Tequila Sunrise",
     "iconPath": "TequilaSunrise.png",
-    "description": "Tequila sunrise blev opfundet i Sausalito,Californien i 1970''erne.Den har sit navn efter dens udseende af en omvendt solopgang.",
+    "description": "Tequila sunrise blev opfundet i Sausalito, Californien i 1970'erne. Den har sit navn efter dens udseende af en omvendt solopgang.",
     "usedIngredients": [
       {
         "amount": 4,
@@ -21,7 +21,7 @@
   {
     "name": "Vodka shot",
     "iconPath": "VodkaShot.png",
-    "description": "mangler mangler mangler mangler mangler mangler' mangler mangler, mangler/ mangler",
+    "description": "Det er bare et vodka shot.",
     "usedIngredients": [
       {
         "amount": 1,
@@ -40,7 +40,7 @@
       },
       {
         "amount": 3,
-        "bottleName": "Cola"
+        "bottleName": "Coca Cola"
       }
     ]
   },
