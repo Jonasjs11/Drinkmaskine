@@ -1,31 +1,35 @@
-int scrollAreaYStart;
-int scrollAreaYEnd;
-int scrollViewHeight;
+int scrollAreaStart;
+int scrollAreaEnd;
+int scrollViewSize;
 int scrollbarCurrent;
 int scrollbarSensitivity = 100;
 
 void mouseWheel(MouseEvent event) {
   float e = event.getCount();
   scrollbarCurrent += e * scrollbarSensitivity;
-  scrollbarCurrent = min(max(scrollbarCurrent, scrollAreaYStart), scrollAreaYEnd - scrollViewHeight);
+  scrollbarCurrent = min(max(scrollbarCurrent, scrollAreaStart), scrollAreaEnd - scrollViewSize);
 }
 
 int getScrollViewOffset(){
-  return scrollbarCurrent - scrollAreaYStart;
+  return scrollbarCurrent - scrollAreaStart;
 }
 
-void updateScrollbarToView(int areaYStart, int areaYEnd, int viewHeight){
-  scrollAreaYStart = areaYStart;
-  scrollAreaYEnd = areaYEnd;
-  scrollViewHeight = viewHeight;
-  scrollbarCurrent = areaYStart;
+void resetScrollbar(){
+  scrollbarCurrent = scrollAreaStart;
 }
 
-void drawScrollbar(int topRightX, int topRightY, int barWidth){
+void updateScrollbarToView(int areaStart, int areaEnd, int viewSize){
+  scrollAreaStart = areaStart;
+  scrollAreaEnd = areaEnd;
+  scrollViewSize = viewSize;
+}
+
+void drawScrollbar(int topRightX, int topRightY, int barWidth, boolean useServingScreenColors){
   noStroke();
-  fill(oldMoneyLight);
-  rect(topRightX-barWidth, topRightY, barWidth, scrollViewHeight);
+  fill(useServingScreenColors ? colorDark : oldMoneyLight);
+  rect(topRightX-barWidth, topRightY, barWidth, scrollViewSize);
   
-  float percentOfAreaShown = scrollViewHeight / (scrollAreaYEnd - scrollAreaYStart);
-  //rect(, , , );
+  float percentOfAreaShown = scrollViewSize / (float)(scrollAreaEnd - scrollAreaStart);
+  fill(useServingScreenColors ? colorText : oldMoneyText);
+  rect(topRightX-barWidth, topRightY+(scrollbarCurrent-scrollAreaStart)*(percentOfAreaShown), barWidth, scrollViewSize*percentOfAreaShown);
 }
