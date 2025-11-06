@@ -68,13 +68,13 @@ void drawAllBottles() {
   ArrayList<Bottle> possibleBottles = removeNonSearchedBottle(getFilteredListOfBottles(allBottles));
   for (int i = 0; i < possibleBottles.size(); i++) {
     float topLeftX = 695+((i%3)*447.5);
-    float topLeftY = 205+((i/3)*447.5) - getScrollViewOffset();
+    float topLeftY = 150+((i/3)*447.5) - getScrollViewOffset();
 
     drawBottleSelectionButton(possibleBottles.get(i), topLeftX, topLeftY);
   }
   selectedBottleThisTime = false;
-  float bottomYOfBottomBottle = 205+(((possibleBottles.size()-1)/3)*447.5);
-  updateScrollbarAreaAndView(100, int(bottomYOfBottomBottle+280+50), 1000);
+  float bottomYOfBottomBottle = 150+(((possibleBottles.size()-1)/3)*447.5);
+  updateScrollbarAreaAndView(100, int(bottomYOfBottomBottle+180+50), 1000);
   
   noStroke();
   fill(oldMoneyLight);
