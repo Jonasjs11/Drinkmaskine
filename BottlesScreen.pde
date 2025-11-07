@@ -1,5 +1,7 @@
 Bottle selectedBottleToConnect;
 
+
+
 void drawBottlesScreen() {
   background(oldMoneyBackground);
 
@@ -16,7 +18,7 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
   noStroke();
   fill(oldMoneyLight);
   rect(50, 50, 530, 100);
-  fill(#FFFFFF);
+  fill(oldMoneyBackground);
   rect(60, 60, 510, 80);
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
@@ -42,6 +44,7 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
     text("Flaske " + (i+1), topLeftCornerX+120, topLeftCornerY+10);
     textAlign(CENTER, CENTER);
     textSize(36);
+    fill(#AF4704);
     text(connectedBottles[i], topLeftCornerX+120, topLeftCornerY+75);
     if (visTilføjFlasker && connectedBottles[i] == "") {
       text("Tilføj flaske", topLeftCornerX+120, topLeftCornerY+75);
