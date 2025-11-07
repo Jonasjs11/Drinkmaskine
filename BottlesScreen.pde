@@ -23,7 +23,9 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
+  textFont(oldMoneyFont);
   text("Tilkoblede flasker", 315, 100);
+  textFont(rustic);
 
   for (int i = 0; i < connectedBottles.length; i++) {
     int topLeftCornerX = 50+((i%2)*290);
@@ -40,6 +42,7 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
 
     fill(oldMoneyText);
     textAlign(CENTER, TOP);
+    textFont(rustic);
     textSize(20);
     text("Flaske " + (i+1), topLeftCornerX+120, topLeftCornerY+10);
     textAlign(CENTER, CENTER);
@@ -51,6 +54,7 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
     if (visTilføjFlasker && connectedBottles[i] == "") {
       text("Tilføj flaske", topLeftCornerX+120, topLeftCornerY+75);
     }
+
 
     if (buttonClicked(topLeftCornerX, topLeftCornerY, 240, 150)) {
       if (selectedBottleToConnect != null) {
@@ -80,47 +84,51 @@ void drawAllBottles() {
   selectedBottleThisTime = false;
   float bottomYOfBottomBottle = 150+(((possibleBottles.size()-1)/3)*447.5);
   updateScrollbarAreaAndView(100, int(bottomYOfBottomBottle+180+50), 1000);
-  
+
   noStroke();
   fill(oldMoneyLight);
   rect(695, 0, 1175, 100);
-  
+
   searchBar(705, 10, 885, 80);
-  
+
   imageMode(CENTER);
   image(filterIcon, 1640, 50, 80, 80);
-  if(areaHover(1640-40, 50-40, 80, 80) && mouseReleased){
+  if (areaHover(1640-40, 50-40, 80, 80) && mouseReleased) {
     showFilterCurrently = !showFilterCurrently;
   }
-  if(showFilterCurrently){ showFilter(1640, 120); }
-  
+  if (showFilterCurrently) {
+    showFilter(1640, 120);
+  }
+
   imageMode(CENTER);
   image(addIcon, 1730, 50, 80, 80);
-  
+
   //tilbage knappen
   imageMode(CENTER);
   image(oldMoneyLogo, 1820, 50, 80, 80);
   if (mouseReleased && areaHover(1820-40, 50-40, 80, 80)) {
     switchToScreenMainMenu();
   }
-  
+
   drawScrollbar(width, 150, 20, false);
 }
 
 
 
-void drawBottleSelectionButton(Bottle bottle, float topLeftX, float topLeftY){
+void drawBottleSelectionButton(Bottle bottle, float topLeftX, float topLeftY) {
   noStroke();
   fill(oldMoneyLight);
   rect(topLeftX, topLeftY, 280, 280);
-    
+
   bottle.showIcon(int(topLeftX)+140, int(topLeftY)+140, 240, 240);
-    
+  
+  textFont(oldMoneyFont);
   fill(oldMoneyText);
   textAlign(CENTER, TOP);
   textSize(36);
   text(getFormattedString(bottle.name, 12, 16), topLeftX+140, topLeftY);
 
+  textFont(rustic);
   fill(oldMoneyText);
   textAlign(CENTER, BOTTOM);
   textSize(36);

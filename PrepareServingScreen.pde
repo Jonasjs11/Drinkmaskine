@@ -21,28 +21,38 @@ void drawPrepareServingScreen() {
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 50, 630, 100);
   rect(width/2, 190, 70, 70);
   rect(width/2, 290, 70, 70);
 
   fill(#FFFFFF);
-  rect(width/2+10, 60, 610, 80);
   rect(width/2+5, 195, 60, 60);
   rect(width/2+5, 295, 60, 60);
 
+  textFont(oldMoneyFont);
+  noStroke();
+  fill(oldMoneyLight);
+  rect(50, 50, 530, 100);
+  rect(width/2, 50, 630, 100);
+  fill(oldMoneyBackground);
+  rect(60, 60, 510, 80);
+  rect(width/2+10, 60, 610, 80);
   fill(oldMoneyText);
-  textSize(56);
   textAlign(CENTER, CENTER);
+  textSize(50);
+  text("Farvetema", 310, 100);
   text("Serveringsindstillinger", width/2+310, 100);
+
   textAlign(LEFT, CENTER);
+  textFont(rustic);
+  textSize(32);
   text("Brug adgangskode", 1034, 220);
   text("Kun alkoholfrie drinks", 1034, 320);
 
-  if (savedPassword.equals("")){ 
+
+  if (savedPassword.equals("")) {
     fill(255);
     password = false;
-  }
-  else fill(0);
+  } else fill(0);
   rect(width/2+10, 200, 50, 50);
 
   if (areaHover(width/2+5, 200, 60, 60)) {
@@ -170,17 +180,6 @@ void drawBeginServingButton() {
 void drawColorschemeSelection() {
   noStroke();
 
-  fill(oldMoneyLight);
-  rect(50, 50, 530, 100);
-
-  fill(#FFFFFF);
-  rect(60, 60, 510, 80);
-
-  fill(oldMoneyText);
-  textAlign(CENTER, CENTER);
-  textSize(56);
-  text("Farveskemaer", 315, 100);
-  
   drawColorschemeSelectionScheme(50, 200, "Old Money mode", #BBA591, #FAECC3, #000000);
   drawColorschemeSelectionScheme(50, 350, "Light mode", #ECECEC, #D1D1D1, #000000);
   drawColorschemeSelectionScheme(50, 500, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
