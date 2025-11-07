@@ -1,85 +1,88 @@
 
-void drawMainMenuScreen(){
+void drawMainMenuScreen() {
   background(oldMoneyBackground);
-  
+
   drawConnectedBottles(true);
-  
+
   noStroke();
   fill(oldMoneyLight);
   rect(630, 0, 15, 1200);
   rect(1275, 0, 15, 1200);
-  
+
   drawChooseScreenButtons();
   drawConnectionToMachine();
 }
 
-void drawChooseScreenButtons(){
+void drawChooseScreenButtons() {
   noStroke();
   fill(oldMoneyLight);
   rect(1340, 50, 530, 300);
   rect(1340, 450, 530, 300);
   rect(1340, 850, 530, 300);
-  
 
-  
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
+  textFont(oldMoneyFont);
   text("Drinks", 1605, 75);
   text("Flasker", 1605, 472);
   text("Server", 1605, 875);
-  
+
   imageMode(CENTER);
   image(drinkScreenButtonIcon, 1604, 180, 312, 214);
   image(bottlesScreenButtonIcon, 1584, 580, 212, 200);
   image(prepareServingScreenButtonIcon, 1585, 982, 214, 214);
-  
+
   textAlign(CENTER, BOTTOM);
+  textFont(rustic);
   textSize(36);
   text("Tilføj, fjern og ændre på\ndrinksne i systemet", 1605, 350);
   text("Tilføj, fjern og ændre på\nflaskerne i systemet", 1605, 741);
   text("Gør klar til serverings-\nskærmen", 1605, 1150);
-  
-  if(buttonClicked(1340, 50, 530, 300)){
-    switchToScreenDrinks();
+
+  if (buttonClicked(1340, 50, 530, 300)) {
+      switchToScreenDrinks();
   }
-  if(buttonClicked(1340, 450, 530, 300)){
+  if (buttonClicked(1340, 450, 530, 300)) {
     switchToScreenBottles();
   }
-  if(buttonClicked(1340, 850, 530, 300)){
+  if (buttonClicked(1340, 850, 530, 300)) {
     switchToScreenPrepareServing();
   }
 }
 
-void drawConnectionToMachine(){
+void drawConnectionToMachine() {
   noStroke();
   fill(oldMoneyLight);
-  
+
   rect(695, 50, 530, 530);
-  
+
   //Drinkmaskine image:
   image(DrinkMaskine, width/2, 320);
   DrinkMaskine.resize(330, 500);
-  
+
   rect(775, 630, 370, 100);
   fill(oldMoneyText);
+  textFont(oldMoneyFont);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Ping", 960, 680);
-  if(areaHover(775, 630, 370, 100) && mouseReleased){
+  if (areaHover(775, 630, 370, 100) && mouseReleased) {
     connectionLines = loadStrings("http://"+ip+"/STRING");
     triedToPing = true;
   }
-  
-  if(connectionLines == null && triedToPing){
+
+  if (connectionLines == null && triedToPing) {
     fill(200, 50, 50);
+
     textAlign(CENTER, CENTER);
     textSize(56);
     text("UNABLE TO CONNECT", 960, 880);
-  } else if (triedToPing){
+  } else if (triedToPing) {
     fill(oldMoneyText);
     textAlign(CENTER, CENTER);
     textSize(56);
     text("CONNECTION\nSUCCESSFULL", 960, 880);
+    textFont(rustic);
   }
 }

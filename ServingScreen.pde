@@ -37,6 +37,7 @@ void drawSelectedDrinkPart() {
     return;
   }
 
+
   fill(colorDark);
   rect(50, 50, 450, 450);
   selectedDrink.showIcon(275, 275, 450, 450);
@@ -96,10 +97,10 @@ void sendDrinkCommand(Drink drink) {
   String request = "http://"+ip+"/STRING?";
 
   boolean isFirst = true;
-  for(Ingredient ingredient : drink.usedIngredients){
-    if(isFirst){
+  for (Ingredient ingredient : drink.usedIngredients) {
+    if (isFirst) {
       request += "M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
-    } else{
+    } else {
       request += "&M" + str(getConnectedBottleIndex(ingredient.bottleName)) + "=" + ingredient.amount;
     }
     isFirst = false;
@@ -113,7 +114,7 @@ void drawDrinkSelectionPart() {
   rect(1150, 0, 720, 100);
 
   searchBar(1160, 10, 509, 80);
-  
+
   ArrayList<Drink> possibleDrinkChoices = removeNonSearchedDrink(getPossibleDrinks());
 
   for (int i = 0; i < possibleDrinkChoices.size(); i++) {
@@ -121,34 +122,53 @@ void drawDrinkSelectionPart() {
   }
 
   image(oldMoneyKnap, 1800, 55);
-  
+
   imageMode(CENTER);
   image(filterIcon, 1709, 50, 80, 80);
-  if(areaHover(1669, 10, 80, 80) && mouseReleased){
+  if (areaHover(1669, 10, 80, 80) && mouseReleased) {
     showFilterCurrently = !showFilterCurrently;
   }
-  if(showFilterCurrently){ showFilter(1709, 120); }
-  
-if (passwordCheckMode) {
-    int LeftX = width/2+350;
-    int LeftY = 200;
+  if (showFilterCurrently) {
+    showFilter(1709, 120);
+  }
+
+  if (passwordCheckMode) {
+    int LeftX = width/2-200;
+    int LeftY =height/2-275;
+
+     fill(colorBackground,220);
+    rect(0,0,width,height);
+    
+    if (doShake) {
+      shake += 10 * shakeDirection;
+      shakeDirection *= -1;
+      shakeTimer--;
+      if (shakeTimer <= 0) {
+        doShake = false;
+        shake = 0;
+      }
+      adgangskodeTekst = "Forkert Adgangskode";
+      passwordIncorrectTextColor = #E00E0E;
+    }
+
 
     fill(colorDark);
     rect(LeftX, LeftY, 400, 550, 20);
-    fill(colorText);
+    fill(passwordIncorrectTextColor);
     textSize(32);
     textAlign(CENTER, CENTER);
-    text("Indtast adgangskode", LeftX+200, LeftY + 40);
+    text(adgangskodeTekst, LeftX + 200, LeftY + 40);
+    fill(colorText);
 
     fill(255);
-    rect(LeftX + 50, LeftY + 70, 300, 50, 10);
+    rect(LeftX + 50 + shake, LeftY + 70, 300, 50, 10);
     fill(0);
-    text("*".repeat(attemptedPassword.length()), LeftX+200, LeftY + 95);
+    text("*".repeat(attemptedPassword.length()), LeftX + 200, LeftY + 95);
 
     int num = 1;
     for (int r = 0; r < 3; r++) {
       for (int c = 0; c < 3; c++) {
-        if (areaHover(LeftX+50 + c*100, LeftY + 140 + r*100, 80, 80)) {
+        if (areaHover(LeftX + 50 + c * 100, LeftY + 140 + r * 100, 80, 80)) {
           if (mousePressed && !mouseClicked) {
             attemptedPassword += str(num);
             mouseClicked = true;
@@ -156,11 +176,11 @@ if (passwordCheckMode) {
           if (!mousePressed) mouseClicked = false;
         }
         fill(255);
-        rect(LeftX + 50 + c*100, LeftY + 140 + r*100, 80, 80, 15);
+        rect(LeftX + 50 + c * 100, LeftY + 140 + r * 100, 80, 80, 15);
         fill(0);
         textSize(36);
         textAlign(CENTER, CENTER);
-        text(str(num), LeftX + 50 + c*100 + 40, LeftY + 140 + r*100 + 40);
+        text(str(num), LeftX + 50 + c * 100 + 40, LeftY + 140 + r * 100 + 40);
         num++;
       }
     }
@@ -173,6 +193,7 @@ if (passwordCheckMode) {
       }
       if (!mousePressed) mouseClicked = false;
     }
+    
     fill(255);
     rect(LeftX + 150, LeftY + 440, 80, 80, 15);
     fill(0);
@@ -181,7 +202,8 @@ if (passwordCheckMode) {
     // DEL-knap
     if (areaHover(LeftX + 50, LeftY + 440, 80, 80)) {
       if (mousePressed && !mouseClicked) {
-        if (attemptedPassword.length() > 0) attemptedPassword = attemptedPassword.substring(0, attemptedPassword.length()-1);
+        if (attemptedPassword.length() > 0)
+          attemptedPassword = attemptedPassword.substring(0, attemptedPassword.length() - 1);
         mouseClicked = true;
       }
       if (!mousePressed) mouseClicked = false;
@@ -202,7 +224,9 @@ if (passwordCheckMode) {
         } else {
           println("Forkert adgangskode");
           attemptedPassword = "";
-          // LAV TEKST ELLER RØD HER <--------
+          doShake = true;
+          shakeTimer = 10;
+          shakeDirection = 1;
         }
       }
       if (!mousePressed) mouseClicked = false;
@@ -212,17 +236,19 @@ if (passwordCheckMode) {
     fill(0);
     text("OK", LeftX + 250 + 40, LeftY + 440 + 40);
   }
-    
+
   // tilbage knappen
   if (mouseReleased &&
     mouseX >= 1800 && mouseX <= 1950 &&
-    mouseY >= 30 && mouseY <= 130) {  
-      println(password);
+    mouseY >= 30 && mouseY <= 130) {
+    println(password);
     if (password) {
       passwordEntering = false;
       attemptedPassword = "";
       passwordCheckMode = true;
-    } else {switchToScreenMainMenu();}
+    } else {
+      switchToScreenMainMenu();
+    }
   }
 }
 
