@@ -21,14 +21,14 @@ void drawPrepareServingScreen() {
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2,    50, 630, 100);
-  rect(width/2-10, 190, 70, 70);
-  rect(width/2-10, 290, 70, 70);
+  rect(width/2, 50, 630, 100);
+  rect(width/2, 190, 70, 70);
+  rect(width/2, 290, 70, 70);
 
   fill(#FFFFFF);
   rect(width/2+10, 60, 610, 80);
-  rect(width/2-5, 195, 60, 60);
-  rect(width/2-5, 295, 60, 60);
+  rect(width/2+5, 195, 60, 60);
+  rect(width/2+5, 295, 60, 60);
 
   fill(oldMoneyText);
   textSize(56);
@@ -43,9 +43,9 @@ void drawServingSettings() {
     password = false;
   }
   else fill(0);
-  rect(width/2, 200, 50, 50);
+  rect(width/2+10, 200, 50, 50);
 
-  if (areaHover(width/2, 200, 60, 60)) {
+  if (areaHover(width/2+5, 200, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       passwordEntering = true;
       enteredPassword = "";
@@ -56,9 +56,9 @@ void drawServingSettings() {
 
   if (nonAlkohol) fill(0);
   else fill(255);
-  rect(width/2, 300, 50, 50);
+  rect(width/2+10, 300, 50, 50);
 
-  if (areaHover(width/2, 300, 60, 60)) {
+  if (areaHover(width/2+5, 300, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       nonAlkohol = !nonAlkohol;
       mouseClicked = true;
