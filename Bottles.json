@@ -42,16 +42,16 @@
   {
     "name": "Citronsaft",
     "alcoholPercentage": 0,
-    "iconPath": "Citronsaft"
+    "iconPath": "Citronsaft.png"
   },
   {
     "name": "Sukkersirup",
     "alcoholPercentage": 0,
-    "iconPath": "Sukkersirup2"
+    "iconPath": "Sukkersirup2.png"
   },
   {
     "name": "Pasteuriseret æggehvide",
     "alcoholPercentage": 0,
-    "iconPath": "Pasteuriseret æggehvide"
+    "iconPath": "Pasteuriseret æggehvide.png"
   }
 ]
