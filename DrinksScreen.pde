@@ -20,7 +20,7 @@ void drawDrinksScreen() {
       fill(oldMoneyText);
       allDrinks.get(drinkNumber).showName(x+125, y+25);
       allDrinks.get(drinkNumber).showImportantIngredients(x+125, y+225, 30);
-      if (drinkNumber < 4) {
+      if (drinkNumber < 12) {
         drinkNumber += 1;
       }
     }
