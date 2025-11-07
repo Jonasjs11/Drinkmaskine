@@ -221,14 +221,15 @@ String getFormattedString(String s, int maxLineSize, int hardLimit){
   for(int i = 0; i < s.length(); i++){
     formatted += s.substring(i, i+1);
     charsAdded++;
+    if(charsAdded > maxLineSize && s.substring(i, i+1).equals(" ")){
+      formatted += "\n";
+      charsAdded = 0;
+      continue;
+    }
     if(charsAdded > hardLimit){
       formatted += "-\n";
       charsAdded = 0;
       continue;
-    }
-    if(charsAdded > maxLineSize && s.substring(i, i+1).equals(" ")){
-      formatted += "\n";
-      charsAdded = 0;
     }
   }
   return formatted;
