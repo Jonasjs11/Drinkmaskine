@@ -21,31 +21,31 @@ void drawPrepareServingScreen() {
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 150, 630, 100);
+  rect(width/2,    50, 630, 100);
+  rect(width/2-10, 190, 70, 70);
   rect(width/2-10, 290, 70, 70);
-  rect(width/2-10, 390, 70, 70);
 
   fill(#FFFFFF);
-  rect(width/2+10, 160, 610, 80);
+  rect(width/2+10, 60, 610, 80);
+  rect(width/2-5, 195, 60, 60);
   rect(width/2-5, 295, 60, 60);
-  rect(width/2-5, 395, 60, 60);
 
   fill(oldMoneyText);
   textSize(56);
   textAlign(CENTER, CENTER);
-  text("Serveringsindstillinger", width/2+310, 200);
+  text("Serveringsindstillinger", width/2+310, 100);
   textAlign(LEFT, CENTER);
-  text("Brug adgangskode", 1034, 320);
-  text("Kun alkoholfrie drinks", 1034, 420);
+  text("Brug adgangskode", 1034, 220);
+  text("Kun alkoholfrie drinks", 1034, 320);
 
   if (savedPassword.equals("")){ 
     fill(255);
     password = false;
   }
   else fill(0);
-  rect(width/2, 300, 50, 50);
+  rect(width/2, 200, 50, 50);
 
-  if (areaHover(width/2, 300, 60, 60)) {
+  if (areaHover(width/2, 200, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       passwordEntering = true;
       enteredPassword = "";
@@ -56,9 +56,9 @@ void drawServingSettings() {
 
   if (nonAlkohol) fill(0);
   else fill(255);
-  rect(width/2, 400, 50, 50);
+  rect(width/2, 300, 50, 50);
 
-  if (areaHover(width/2, 400, 60, 60)) {
+  if (areaHover(width/2, 300, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       nonAlkohol = !nonAlkohol;
       mouseClicked = true;
