@@ -21,30 +21,31 @@ void drawPrepareServingScreen() {
 
 void drawServingSettings() {
   fill(oldMoneyLight);
-  rect(width/2, 150, 630, 100);
-  rect(width/2-10, 290, 70, 70);
-  rect(width/2-10, 390, 70, 70);
+  rect(width/2, 50, 630, 100);
+  rect(width/2, 190, 70, 70);
+  rect(width/2, 290, 70, 70);
 
   fill(#FFFFFF);
-  rect(width/2+10, 160, 610, 80);
-  rect(width/2-5, 295, 60, 60);
-  rect(width/2-5, 395, 60, 60);
+  rect(width/2+10, 60, 610, 80);
+  rect(width/2+5, 195, 60, 60);
+  rect(width/2+5, 295, 60, 60);
 
   fill(oldMoneyText);
-  textAlign(CENTER, CENTER);
   textSize(56);
-  text("Serveringsindstillinger", width/2+310, 200);
-  text("Adgangskode", width/2+230, 320);
-  text("Alkohol", width/2+160, 420);
+  textAlign(CENTER, CENTER);
+  text("Serveringsindstillinger", width/2+310, 100);
+  textAlign(LEFT, CENTER);
+  text("Brug adgangskode", 1034, 220);
+  text("Kun alkoholfrie drinks", 1034, 320);
 
   if (savedPassword.equals("")){ 
     fill(255);
     password = false;
   }
   else fill(0);
-  rect(width/2, 300, 50, 50);
+  rect(width/2+10, 200, 50, 50);
 
-  if (areaHover(width/2, 300, 60, 60)) {
+  if (areaHover(width/2+5, 200, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       passwordEntering = true;
       enteredPassword = "";
@@ -55,9 +56,9 @@ void drawServingSettings() {
 
   if (nonAlkohol) fill(0);
   else fill(255);
-  rect(width/2, 400, 50, 50);
+  rect(width/2+10, 300, 50, 50);
 
-  if (areaHover(width/2, 400, 60, 60)) {
+  if (areaHover(width/2+5, 300, 60, 60)) {
     if (mousePressed && !mouseClicked) {
       nonAlkohol = !nonAlkohol;
       mouseClicked = true;
@@ -170,21 +171,21 @@ void drawColorschemeSelection() {
   noStroke();
 
   fill(oldMoneyLight);
-  rect(50, 150, 430, 100);
+  rect(50, 50, 530, 100);
 
   fill(#FFFFFF);
-  rect(60, 160, 410, 80);
+  rect(60, 60, 510, 80);
 
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
-  text("Farveskemaer", 265, 200);
+  text("Farveskemaer", 315, 100);
   
-  drawColorschemeSelectionScheme(50, 300, "Old Money mode", #BBA591, #FAECC3, #000000);
-  drawColorschemeSelectionScheme(50, 450, "Light mode", #ECECEC, #D1D1D1, #000000);
-  drawColorschemeSelectionScheme(50, 600, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
-  drawColorschemeSelectionScheme(50, 750, "Pink mode", #D7A0A0, #AD6060, #000000);
-  drawColorschemeSelectionScheme(50, 900, "Blue mode", #9FC5D6, #5F92AD, #000000);
+  drawColorschemeSelectionScheme(50, 200, "Old Money mode", #BBA591, #FAECC3, #000000);
+  drawColorschemeSelectionScheme(50, 350, "Light mode", #ECECEC, #D1D1D1, #000000);
+  drawColorschemeSelectionScheme(50, 500, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
+  drawColorschemeSelectionScheme(50, 650, "Pink mode", #D7A0A0, #AD6060, #000000);
+  drawColorschemeSelectionScheme(50, 800, "Blue mode", #9FC5D6, #5F92AD, #000000);
 }
 
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme) {

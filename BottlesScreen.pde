@@ -44,8 +44,10 @@ void drawConnectedBottles(boolean visTilføjFlasker) {
     text("Flaske " + (i+1), topLeftCornerX+120, topLeftCornerY+10);
     textAlign(CENTER, CENTER);
     textSize(36);
+
     fill(#AF4704);
-    text(connectedBottles[i], topLeftCornerX+120, topLeftCornerY+75);
+    text(getFormattedString(connectedBottles[i], 9, 13), topLeftCornerX+120, topLeftCornerY+75);
+
     if (visTilføjFlasker && connectedBottles[i] == "") {
       text("Tilføj flaske", topLeftCornerX+120, topLeftCornerY+75);
     }

@@ -17,7 +17,7 @@
   {
     "name": "Coca Cola",
     "alcoholPercentage": 0,
-    "iconPath": "Coca Cola.png"
+    "iconPath": "CocaCola.png"
   },
   {
     "name": "Fuze Tea Peach",
@@ -32,7 +32,7 @@
   {
     "name": "Rom",
     "alcoholPercentage": 37.5,
-    "iconPath": "Rom.png"
+    "iconPath": "rom.png"
   },
   {
     "name": "Whiskey",
@@ -47,7 +47,7 @@
   {
     "name": "Sukkersirup",
     "alcoholPercentage": 0,
-    "iconPath": "Sukkersirup"
+    "iconPath": "Sukkersirup2"
   },
   {
     "name": "Pasteuriseret æggehvide",

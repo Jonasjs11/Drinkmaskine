@@ -23,6 +23,10 @@ PImage greyBottlesIcon;
 
 PImage DrinkMaskine;
 
+PImage drinkScreenButtonIcon;
+PImage bottlesScreenButtonIcon;
+PImage prepareServingScreenButtonIcon;
+
 int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
 int oldMoneyText = #000000;
@@ -75,8 +79,11 @@ void setup() {
   addIcon = loadImage("Add.png");
   greyBottlesIcon = loadImage("GraaFlasker.png");
   DrinkMaskine = loadImage("Drinkmaskinen.png");
-
-
+  
+  drinkScreenButtonIcon = loadImage("DrinksSkærmKnapIkon.png");
+  bottlesScreenButtonIcon = loadImage("BottlesSkærmKnapIkon.png");
+  prepareServingScreenButtonIcon = loadImage("PrepareServeringSkærmKnapIkon.png");
+  
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
 
   connectionLines = null;
@@ -226,14 +233,16 @@ String getFormattedString(String s, int maxLineSize, int hardLimit) {
   for (int i = 0; i < s.length(); i++) {
     formatted += s.substring(i, i+1);
     charsAdded++;
-    if (charsAdded > hardLimit) {
-      formatted += "-\n";
+
+    if(charsAdded > maxLineSize && s.substring(i, i+1).equals(" ")){
+      formatted += "\n";
       charsAdded = 0;
       continue;
     }
-    if (charsAdded > maxLineSize && s.substring(i, i+1).equals(" ")) {
-      formatted += "\n";
+    if(charsAdded > hardLimit){
+      formatted += "-\n";
       charsAdded = 0;
+      continue;
     }
   }
   return formatted;

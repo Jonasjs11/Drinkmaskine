@@ -24,17 +24,24 @@ void drawChooseScreenButtons() {
   textAlign(CENTER, CENTER);
   textSize(56);
   textFont(oldMoneyFont);
-  text("Drinks", 1605, 150);
-  text("Flasker", 1605, 550);
-  text("Server", 1605, 950);
-  textSize(36);
+  text("Drinks", 1605, 75);
+  text("Flasker", 1605, 472);
+  text("Server", 1605, 875);
+
+  imageMode(CENTER);
+  image(drinkScreenButtonIcon, 1604, 180, 312, 214);
+  image(bottlesScreenButtonIcon, 1584, 580, 212, 200);
+  image(prepareServingScreenButtonIcon, 1585, 982, 214, 214);
+
+  textAlign(CENTER, BOTTOM);
   textFont(rustic);
-  text("Tilføj, fjern og ændre på\ndrinksne i systemet", 1605, 300);
-  text("Tilføj, fjern og ændre på\nflaskerne i systemet", 1605, 700);
-  text("Gør klar til serverings-\nskærmen", 1605, 1100);
+  textSize(36);
+  text("Tilføj, fjern og ændre på\ndrinksne i systemet", 1605, 350);
+  text("Tilføj, fjern og ændre på\nflaskerne i systemet", 1605, 741);
+  text("Gør klar til serverings-\nskærmen", 1605, 1150);
 
   if (buttonClicked(1340, 50, 530, 300)) {
-    switchToScreenDrinks();
+      switchToScreenDrinks();
   }
   if (buttonClicked(1340, 450, 530, 300)) {
     switchToScreenBottles();
@@ -56,7 +63,7 @@ void drawConnectionToMachine() {
 
   rect(775, 630, 370, 100);
   fill(oldMoneyText);
-      textFont(oldMoneyFont);
+  textFont(oldMoneyFont);
   textAlign(CENTER, CENTER);
   textSize(56);
   text("Ping", 960, 680);
