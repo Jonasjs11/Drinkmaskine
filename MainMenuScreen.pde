@@ -20,6 +20,11 @@ void drawChooseScreenButtons(){
   rect(1340, 450, 530, 300);
   rect(1340, 850, 530, 300);
   
+  imageMode(CENTER);
+  image(drinkScreenButtonIcon, 1604, 180, 312, 214);
+  image(bottlesScreenButtonIcon, 1584, 580, 212, 200);
+  image(prepareServingScreenButtonIcon, 1585, 982, 214, 214);
+  
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);

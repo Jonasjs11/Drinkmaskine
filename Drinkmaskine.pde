@@ -23,6 +23,10 @@ PImage greyBottlesIcon;
 
 PImage DrinkMaskine;
 
+PImage drinkScreenButtonIcon;
+PImage bottlesScreenButtonIcon;
+PImage prepareServingScreenButtonIcon;
+
 int oldMoneyBackground = #BBA591;
 int oldMoneyLight = #FAECC3;
 int oldMoneyText = #000000;
@@ -72,7 +76,10 @@ void setup(){
   greyBottlesIcon = loadImage("GraaFlasker.png");
 
   DrinkMaskine = loadImage("Drinkmaskinen.png");
-
+  
+  drinkScreenButtonIcon = loadImage("DrinksSkærmKnapIkon.png");
+  bottlesScreenButtonIcon = loadImage("BottlesSkærmKnapIkon.png");
+  prepareServingScreenButtonIcon = loadImage("PrepareServeringSkærmKnapIkon.png");
   
   connectedBottles[0] = "Vodka"; //KUN FOR TEST
   
