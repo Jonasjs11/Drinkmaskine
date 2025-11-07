@@ -20,21 +20,25 @@ void drawChooseScreenButtons(){
   rect(1340, 450, 530, 300);
   rect(1340, 850, 530, 300);
   
+
+  
+  fill(oldMoneyText);
+  textAlign(CENTER, CENTER);
+  textSize(56);
+  text("Drinks", 1605, 75);
+  text("Flasker", 1605, 472);
+  text("Server", 1605, 875);
+  
   imageMode(CENTER);
   image(drinkScreenButtonIcon, 1604, 180, 312, 214);
   image(bottlesScreenButtonIcon, 1584, 580, 212, 200);
   image(prepareServingScreenButtonIcon, 1585, 982, 214, 214);
   
-  fill(oldMoneyText);
-  textAlign(CENTER, CENTER);
-  textSize(56);
-  text("Drinks", 1605, 150);
-  text("Flasker", 1605, 550);
-  text("Server", 1605, 950);
+  textAlign(CENTER, BOTTOM);
   textSize(36);
-  text("Tilføj, fjern og ændre på\ndrinksne i systemet", 1605, 300);
-  text("Tilføj, fjern og ændre på\nflaskerne i systemet", 1605, 700);
-  text("Gør klar til serverings-\nskærmen", 1605, 1100);
+  text("Tilføj, fjern og ændre på\ndrinksne i systemet", 1605, 350);
+  text("Tilføj, fjern og ændre på\nflaskerne i systemet", 1605, 741);
+  text("Gør klar til serverings-\nskærmen", 1605, 1150);
   
   if(buttonClicked(1340, 50, 530, 300)){
     switchToScreenDrinks();
