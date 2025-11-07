@@ -171,21 +171,21 @@ void drawColorschemeSelection() {
   noStroke();
 
   fill(oldMoneyLight);
-  rect(50, 150, 430, 100);
+  rect(50, 50, 530, 100);
 
   fill(#FFFFFF);
-  rect(60, 160, 410, 80);
+  rect(60, 60, 510, 80);
 
   fill(oldMoneyText);
   textAlign(CENTER, CENTER);
   textSize(56);
-  text("Farveskemaer", 265, 200);
+  text("Farveskemaer", 315, 100);
   
-  drawColorschemeSelectionScheme(50, 300, "Old Money mode", #BBA591, #FAECC3, #000000);
-  drawColorschemeSelectionScheme(50, 450, "Light mode", #ECECEC, #D1D1D1, #000000);
-  drawColorschemeSelectionScheme(50, 600, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
-  drawColorschemeSelectionScheme(50, 750, "Pink mode", #D7A0A0, #AD6060, #000000);
-  drawColorschemeSelectionScheme(50, 900, "Blue mode", #9FC5D6, #5F92AD, #000000);
+  drawColorschemeSelectionScheme(50, 200, "Old Money mode", #BBA591, #FAECC3, #000000);
+  drawColorschemeSelectionScheme(50, 350, "Light mode", #ECECEC, #D1D1D1, #000000);
+  drawColorschemeSelectionScheme(50, 500, "Dark mode", #7B7B7B, #4F4F4F, #FFFFFF);
+  drawColorschemeSelectionScheme(50, 650, "Pink mode", #D7A0A0, #AD6060, #000000);
+  drawColorschemeSelectionScheme(50, 800, "Blue mode", #9FC5D6, #5F92AD, #000000);
 }
 
 void drawColorschemeSelectionScheme(int topLeftX, int topLeftY, String name, int colorBackgroundScheme, int colorDarkScheme, int colorTextScheme) {
