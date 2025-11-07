@@ -31,11 +31,12 @@ void drawServingSettings() {
   rect(width/2-5, 395, 60, 60);
 
   fill(oldMoneyText);
-  textAlign(CENTER, CENTER);
   textSize(56);
+  textAlign(CENTER, CENTER);
   text("Serveringsindstillinger", width/2+310, 200);
-  text("Adgangskode", width/2+230, 320);
-  text("Alkohol", width/2+160, 420);
+  textAlign(LEFT, CENTER);
+  text("Brug adgangskode", 1034, 320);
+  text("Kun alkoholfrie drinks", 1034, 420);
 
   if (savedPassword.equals("")){ 
     fill(255);
