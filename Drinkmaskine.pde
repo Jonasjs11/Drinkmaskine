@@ -279,6 +279,8 @@ void switchToScreenDrinks() {
   resetSearchBar();
   selectedBottleToConnect = null;
   resetFilter();
+  updateScrollbarAreaAndView(100, 2000, 1000);
+  resetScrollbar();
 }
 void switchToScreenPrepareServing() {
   screenMainMenu = false;

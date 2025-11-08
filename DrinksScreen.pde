@@ -12,7 +12,7 @@ void drawDrinksScreen() {
     for (int row = 0; row < 3; row++) {
       fill(oldMoneyLight);
       int x = xStart + col * (250 + spacingX);
-      int y = yStart + row * (250 + spacingY);
+      int y = yStart + row * (250 + spacingY) - getScrollViewOffset();
       rect(x, y, 250, 250, 20);
       allDrinks.get(drinkNumber).showIcon(x+125, y+125, 250, 250);
       fill(oldMoneyText);
@@ -23,6 +23,8 @@ void drawDrinksScreen() {
       }
     }
   }
+  float bottomYOfBottomDrink = yStart + 3 * (250 + spacingY);
+  updateScrollbarAreaAndView(100, int(bottomYOfBottomDrink)+180+50, 1000);
   
   fill(oldMoneyLight);
   rect(100, 0, 1720, 100);
@@ -43,4 +45,6 @@ void drawDrinksScreen() {
   if (mouseReleased && areaHover(1770-40, 50-40, 80, 80)) {
     switchToScreenMainMenu();
   }
+  
+  drawScrollbar(width, 150, 20, false);
 }
