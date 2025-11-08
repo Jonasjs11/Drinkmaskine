@@ -110,16 +110,15 @@ void sendDrinkCommand(Drink drink) {
 }
 
 void drawDrinkSelectionPart() {
+  ArrayList<Drink> possibleDrinkChoices = removeNonSearchedDrink(getPossibleDrinks());
+  for (int i = 0; i < possibleDrinkChoices.size(); i++) {
+    drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440) - getScrollViewOffset(), 280, 280, possibleDrinkChoices.get(i));
+  }
+
   fill(colorDark);
   rect(1150, 0, 720, 100);
 
   searchBar(1160, 10, 509, 80);
-
-  ArrayList<Drink> possibleDrinkChoices = removeNonSearchedDrink(getPossibleDrinks());
-
-  for (int i = 0; i < possibleDrinkChoices.size(); i++) {
-    drawDrinkSelectionButton(1150+((i%2)*440), 150+((i/2)*440), 280, 280, possibleDrinkChoices.get(i));
-  }
 
   image(oldMoneyKnap, 1800, 55);
 
@@ -131,6 +130,10 @@ void drawDrinkSelectionPart() {
   if (showFilterCurrently) {
     showFilter(1709, 120);
   }
+
+  float bottomYOfBottomBottle = 150+(((possibleDrinkChoices.size()-1)/2)*440);
+  updateScrollbarAreaAndView(150, int(bottomYOfBottomBottle+280+50), 1050);
+  drawScrollbar(width, 125, 20, false);
 
   if (passwordCheckMode) {
     int LeftX = width/2-200;
