@@ -6,8 +6,8 @@ void drawDrinksScreen() {
   int spacingX = 240;
   int spacingY = 100;
   int drinkNumber = 0;
-
-  rect(100, 0, 1720, 100);
+  
+  ArrayList<Drink> shownDrinks = removeNonSearchedDrink(getFilteredListOfDrinks(allDrinks));//SKAL BRUGES!!!
   for (int col = 0; col < 4; col++) {
     for (int row = 0; row < 3; row++) {
       fill(oldMoneyLight);
@@ -17,13 +17,13 @@ void drawDrinksScreen() {
       allDrinks.get(drinkNumber).showIcon(x+125, y+125, 250, 250);
       fill(oldMoneyText);
       allDrinks.get(drinkNumber).showName(x+125, y+25);
-      allDrinks.get(drinkNumber).showImportantIngredients(x+125, y+225, 30);
+      allDrinks.get(drinkNumber).showImportantIngredients(x+125, y+225, 18);
       if (drinkNumber < 12) {
         drinkNumber += 1;
       }
     }
   }
-  float bottomYOfBottomDrink = yStart + 3 * (250 + spacingY);
+  float bottomYOfBottomDrink = yStart + 3 * (250 + spacingY);//SKAL FIXES!!!
   updateScrollbarAreaAndView(100, int(bottomYOfBottomDrink)+180+50, 1000);
   
   fill(oldMoneyLight);
