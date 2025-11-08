@@ -63,6 +63,17 @@
     ]
   },
   {
+    "name": "Gin shot",
+    "iconPath": "Gin.png",
+    "description": "Det er bare et gin shot.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Gin"
+      }
+    ]
+  },
+  {
     "name": "Coca Cola",
     "iconPath": "CocaCola.png",
     "description": "Et lille glas Coca Cola",
@@ -81,6 +92,17 @@
       {
         "amount": 6,
         "bottleName": "Appelsinjuice"
+      }
+    ]
+  },
+  {
+    "name": "Tonicvand",
+    "iconPath": "Tonicvand.png",
+    "description": "Et lille glas tonicvand",
+    "usedIngredients": [
+      {
+        "amount": 6,
+        "bottleName": "Tonicvand"
       }
     ]
   },
@@ -225,7 +247,7 @@
       },
       {
         "amount": 3,
-        "bottleName": "Citronjuice"
+        "bottleName": "Citronsaft"
       },
       {
         "amount": 1,
