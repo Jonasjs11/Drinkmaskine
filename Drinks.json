@@ -30,9 +30,64 @@
     ]
   },
   {
+    "name": "Tequila shot",
+    "iconPath": "VodkaShot.png",
+    "description": "Det er bare et tequila shot.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Tequila"
+      }
+    ]
+  },
+  {
+    "name": "Rom shot",
+    "iconPath": "rom.png",
+    "description": "Det er bare et rom shot.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Rom"
+      }
+    ]
+  },
+  {
+    "name": "Whiskey shot",
+    "iconPath": "Whiskey.png",
+    "description": "Det er bare et whiskey shot.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Whiskey"
+      }
+    ]
+  },
+  {
+    "name": "Coca Cola",
+    "iconPath": "CocaCola.png",
+    "description": "Et lille glas Coca Cola",
+    "usedIngredients": [
+      {
+        "amount": 6,
+        "bottleName": "Coca Cola"
+      }
+    ]
+  },
+  {
+    "name": "Appelsinjuice",
+    "iconPath": "Appelsinjuice.png",
+    "description": "Et lille glas Appelsinjuice",
+    "usedIngredients": [
+      {
+        "amount": 6,
+        "bottleName": "Appelsinjuice"
+      }
+    ]
+  },
+  {
     "name": "Rom og Cola",
     "iconPath": "RomOgCola.png",
-    "description": "mangler",
+    "description": "En meget populær drink, bestående af rom og cola.",
     "usedIngredients": [
       {
         "amount": 1,
@@ -47,7 +102,7 @@
   {
     "name": "Whiskey sour",
     "iconPath": "WhiskeySour.png",
-    "description": "mangler",
+    "description": "En drink fra 1870 med en blanding af sure, bitre og søde smage.",
     "usedIngredients": [
       {
         "amount": 5,
@@ -117,7 +172,7 @@
       }
     ]
   },
- {
+  {
     "name": "Pina Colada",
     "iconPath": "PinaColada.png",
     "description": "En sød, tropisk drink med rom, kokos og ananas",
@@ -134,179 +189,178 @@
         "amount": 3,
         "bottleName": "Ananasjuice"
       }
-   
     ]
   },
-{
-  "name": "Margarita",
-  "iconPath": "Margarita.png",
-  "description": "En klassisk tequila-drink med lime og saltkant",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Tequila"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Cointreau"
-    },
-    {
-      "amount": 3,
-      "bottleName": "Limejuice"
-    }  
+  {
+    "name": "Margarita",
+    "iconPath": "Margarita.png",
+    "description": "En klassisk tequila-drink med lime og saltkant",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Tequila"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Cointreau"
+      },
+      {
+        "amount": 3,
+        "bottleName": "Limejuice"
+      }
     ]
   },
-{
-  "name": "Bloody Mary",
-  "iconPath": "BloodyMary.png",
-  "description": "En krydet drink med vodka og tomatjuice",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Vodka"
-    },
-    {
-      "amount": 1,
-      "bottleName": "TomatJuice"
-    },
-    {
-      "amount": 3,
-      "bottleName": "Citronjuice"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Tabasco"
-    }
+  {
+    "name": "Bloody Mary",
+    "iconPath": "BloodyMary.png",
+    "description": "En krydet drink med vodka og tomatjuice",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Vodka"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Tomatjuice"
+      },
+      {
+        "amount": 3,
+        "bottleName": "Citronjuice"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Tabasco"
+      }
     ]
   },
-{
-  "name": "Gin og Tonic",
-  "iconPath": "GinogTonic.png",
-  "description": "En frisk klassiker med gin og tonicvand.",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Gin"
-    },
-    {
-      "amount": 4,
-      "bottleName": "Tonicvand"
-    }
-  ]
-},
-{
-  "name": "Mai Tai",
-  "iconPath": "MaiTai.png",
-  "description": "En frugtagtig drink med lys og mørk rom.",
-  "usedIngredients": [
-    {
-      "amount": 1,
-      "bottleName": "Lys Rom"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Mørk Rom"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Appelsinlikør"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Limejuice"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Orgeatsirup"
-    }
-  ]
-},
-{
-  "name": "Caipirinha",
-  "iconPath": "Caipirinha.png",
-  "description": "En brasiliansk klassiker med cachaça og lime.",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Cachaça"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Sukker"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Lime"
-    }
-  ]
-},
-{
-  "name": "Long Island Iced Tea",
-  "iconPath": "LongIslandIcedTea.png",
-  "description": "En stærk drink med fem slags spiritus og cola.",
-  "usedIngredients": [
-    {
-      "amount": 1,
-      "bottleName": "Vodka"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Gin"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Rom"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Tequila"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Triple Sec"
-    },
-    {
-      "amount": 2,
-      "bottleName": "Coca Cola"
-    }
-  ]
-},
-{
-  "name": "Daiquiri",
-  "iconPath": "Daiquiri.png",
-  "description": "En simpel og frisk drink med rom og lime.",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Rom"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Limejuice"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Sukker"
-    }
-  ]
-},
-{
-  "name": "Blue Lagoon",
-  "iconPath": "BlueLagoon.png",
-  "description": "En farverig drink med vodka, blå curaçao og citronade.",
-  "usedIngredients": [
-    {
-      "amount": 2,
-      "bottleName": "Vodka"
-    },
-    {
-      "amount": 1,
-      "bottleName": "Blå Curaçao"
-    },
-    {
-      "amount": 3,
-      "bottleName": "Citronade"
-    }
-  ]
- }
+  {
+    "name": "Gin og Tonic",
+    "iconPath": "GinogTonic.png",
+    "description": "En frisk klassiker med gin og tonicvand.",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Gin"
+      },
+      {
+        "amount": 4,
+        "bottleName": "Tonicvand"
+      }
+    ]
+  },
+  {
+    "name": "Mai Tai",
+    "iconPath": "MaiTai.jpg",
+    "description": "En frugtagtig drink med lys og mørk rom.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Lys Rom"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Mørk Rom"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Appelsinlikør"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Limejuice"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Orgeatsirup"
+      }
+    ]
+  },
+  {
+    "name": "Caipirinha",
+    "iconPath": "Caipirinha.png",
+    "description": "En brasiliansk klassiker med cachaça og lime.",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Cachaça"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Sukker"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Limejuice"
+      }
+    ]
+  },
+  {
+    "name": "Long Island Iced Tea",
+    "iconPath": "LongIslandIcedTea.png",
+    "description": "En stærk drink med fem slags spiritus og cola.",
+    "usedIngredients": [
+      {
+        "amount": 1,
+        "bottleName": "Vodka"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Gin"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Rom"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Tequila"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Triple Sec"
+      },
+      {
+        "amount": 2,
+        "bottleName": "Coca Cola"
+      }
+    ]
+  },
+  {
+    "name": "Daiquiri",
+    "iconPath": "Daiquiri.png",
+    "description": "En simpel og frisk drink med rom og lime.",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Rom"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Limejuice"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Sukker"
+      }
+    ]
+  },
+  {
+    "name": "Blue Lagoon",
+    "iconPath": "BlueLagoon.png",
+    "description": "En farverig drink med vodka, blå curaçao og citronade.",
+    "usedIngredients": [
+      {
+        "amount": 2,
+        "bottleName": "Vodka"
+      },
+      {
+        "amount": 1,
+        "bottleName": "Blå Curaçao"
+      },
+      {
+        "amount": 3,
+        "bottleName": "Citronade"
+      }
+    ]
+  }
 ]

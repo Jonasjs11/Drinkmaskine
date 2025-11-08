@@ -45,6 +45,11 @@
     "iconPath": "Citronsaft.png"
   },
   {
+    "name": "Limejuice",
+    "alcoholPercentage": 0,
+    "iconPath": "Limejuice.png"
+  },
+  {
     "name": "Sukkersirup",
     "alcoholPercentage": 0,
     "iconPath": "Sukkersirup2.png"
@@ -53,5 +58,20 @@
     "name": "Pasteuriseret æggehvide",
     "alcoholPercentage": 0,
     "iconPath": "Pasteuriseret æggehvide.png"
+  },
+  {
+    "name": "Triple Sec",
+    "alcoholPercentage": 40,
+    "iconPath": "Triple Sec.png"
+  },
+  {
+    "name": "Gin",
+    "alcoholPercentage": 43,
+    "iconPath": "Gin.png"
+  },
+  {
+    "name": "Tonicvand",
+    "alcoholPercentage": 0,
+    "iconPath": "Tonicvand.png"
   }
 ]
