@@ -1,8 +1,6 @@
 void drawDrinksScreen() {
   background(oldMoneyBackground);
 
-  fill(oldMoneyLight);
-
   int xStart = 100;
   int yStart = 200;
   int spacingX = 240;
@@ -26,14 +24,23 @@ void drawDrinksScreen() {
     }
   }
   
-  searchBar(120, 10, 1400, 80);
-  image(filterIcon, 1650, 50, 80, 80);
-  image(oldMoneyKnap,1750, 59);
+  fill(oldMoneyLight);
+  rect(100, 0, 1720, 100);
+  searchBar(110, 10, 1440, 80);
+  imageMode(CENTER);
+  image(addIcon, 1680, 50, 80, 80);
   
+  image(filterIcon, 1590, 50, 80, 80);
+  if (areaHover(1590-40, 50-40, 80, 80) && mouseReleased) {
+    showFilterCurrently = !showFilterCurrently;
+  }
+  if (showFilterCurrently) {
+    showFilter(1590, 120);
+  }
+  
+  image(oldMoneyLogo, 1770, 50, 80, 80);
   //tilbage knappen
-  if (mouseReleased &&
-    mouseX >= 1749 && mouseX <= 1900 &&
-    mouseY >= 40 && mouseY <= 120) {
+  if (mouseReleased && areaHover(1770-40, 50-40, 80, 80)) {
     switchToScreenMainMenu();
   }
 }
