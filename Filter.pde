@@ -65,3 +65,24 @@ ArrayList<Bottle> getFilteredListOfBottles(ArrayList<Bottle> original){
     
   return filtered;
 }
+
+ArrayList<Drink> getFilteredListOfDrinks(ArrayList<Drink> original){
+  ArrayList<Drink> filtered = new ArrayList<Drink>();
+  
+  for(int i = 0; i < original.size(); i++){
+    if (filterNonAlcoholic) {
+      if (allDrinks.get(i).isAlcoholFree() == false) {
+        continue;
+      }
+    }
+    if (filterUnderSixPercent) {
+      if (allDrinks.get(i).getAlcoholPercent() > 0.06) {
+        continue;
+      }
+    }
+    
+    filtered.add(original.get(i));
+  }
+    
+  return filtered;
+}
