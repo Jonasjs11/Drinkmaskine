@@ -1,29 +1,42 @@
 void drawDrinksScreen() {
   background(oldMoneyBackground);
 
-  int xStart = 100;
-  int yStart = 200;
+  fill(oldMoneyLight);
+
+  int LeftX = 100;
+  int LeftY = 200;
   int spacingX = 240;
   int spacingY = 100;
-  int drinkNumber = 0;
+
+  int drinksPerRow = 4;
+  int boxWidth = 250;
+  int boxHeight = 250;
+
+  ArrayList<Drink> shownDrinks = removeNonSearchedDrink(getFilteredListOfDrinks(allDrinks));
+
+  int totalDrinks = shownDrinks.size();
   
-  ArrayList<Drink> shownDrinks = removeNonSearchedDrink(getFilteredListOfDrinks(allDrinks));//SKAL BRUGES!!!
-  for (int col = 0; col < 4; col++) {
-    for (int row = 0; row < 3; row++) {
-      fill(oldMoneyLight);
-      int x = xStart + col * (250 + spacingX);
-      int y = yStart + row * (250 + spacingY) - getScrollViewOffset();
-      rect(x, y, 250, 250, 20);
-      allDrinks.get(drinkNumber).showIcon(x+125, y+125, 250, 250);
-      fill(oldMoneyText);
-      allDrinks.get(drinkNumber).showName(x+125, y+25);
-      allDrinks.get(drinkNumber).showImportantIngredients(x+125, y+225, 18);
-      if (drinkNumber < 12) {
-        drinkNumber += 1;
-      }
-    }
+  rect(100, 0, 1720, 100);
+  
+  for (int drinkNumber = 0; drinkNumber < totalDrinks; drinkNumber++) {
+    int col = drinkNumber % drinksPerRow;
+    int row = drinkNumber / drinksPerRow;
+
+    int x = LeftX + col * (boxWidth + spacingX);
+    int y = LeftY + row * (boxHeight + spacingY);
+
+    fill(oldMoneyLight);
+    rect(x, y, boxWidth, boxHeight, 20);
+
+    Drink d = shownDrinks.get(drinkNumber);
+
+    d.showIcon(x + boxWidth/2, y + boxHeight/2, boxWidth, boxHeight);
+    fill(oldMoneyText);
+    d.showName(x + boxWidth/2, y + 25);
+    d.showImportantIngredients(x + boxWidth/2, y + boxHeight - 25, 30);
   }
-  float bottomYOfBottomDrink = yStart + 3 * (250 + spacingY);//SKAL FIXES!!!
+  
+  float bottomYOfBottomDrink = LeftY + 3 * (250 + spacingY);//SKAL FIXES!!!  - HVORDAN???????!!!!!!!!?????????
   updateScrollbarAreaAndView(100, int(bottomYOfBottomDrink)+180+50, 1000);
   
   fill(oldMoneyLight);
