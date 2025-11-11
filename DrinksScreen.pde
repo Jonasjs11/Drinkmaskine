@@ -23,7 +23,7 @@ void drawDrinksScreen() {
     int row = drinkNumber / drinksPerRow;
 
     int x = LeftX + col * (boxWidth + spacingX);
-    int y = LeftY + row * (boxHeight + spacingY);
+    int y = LeftY + row * (boxHeight + spacingY) - getScrollViewOffset();
 
     fill(oldMoneyLight);
     rect(x, y, boxWidth, boxHeight, 20);
@@ -36,8 +36,8 @@ void drawDrinksScreen() {
     d.showImportantIngredients(x + boxWidth/2, y + boxHeight - 25, 30);
   }
   
-  float bottomYOfBottomDrink = LeftY + 3 * (250 + spacingY);//SKAL FIXES!!!  - HVORDAN???????!!!!!!!!?????????
-  updateScrollbarAreaAndView(100, int(bottomYOfBottomDrink)+180+50, 1000);
+  float bottomYOfBottomDrink = LeftY + ((totalDrinks - 1) / drinksPerRow) * (boxHeight + spacingY) + boxHeight;
+  updateScrollbarAreaAndView(100, int(bottomYOfBottomDrink)+50, 1000);
   
   fill(oldMoneyLight);
   rect(100, 0, 1720, 100);
